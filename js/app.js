@@ -165,61 +165,39 @@
     }).join('');
   }
 
-  /* ---------------- comments (GitHub Issues) ---------------- */
-  function headersForAuth() {
-    var h = { 'Accept': 'application/vnd.github+json' };
-    if (CONFIG.token) h['Authorization'] = 'Bearer ' + CONFIG.token;
-    return h;
-  }
-  function parseMarker(body) {
-    var m = String(body || '').match(/<!--SK:([^>]+)-->/);
-    return m ? m[1] : '';
-  }
+  /* ---------------- comments (Google Apps Script + Sheets) ---------------- */
   function listComments() {
     if (!API) return Promise.resolve([]);
-    return fetch(API + '/issues?state=all&per_page=100&sort=created&direction=desc', { headers: headersForAuth() })
-      .then(function (r) {
-        if (r.status === 401 || r.status === 403 || r.status === 404) return [];
-        return r.json();
-      })
+    var byKey = {};
+    students.forEach(function (s) { byKey[s.key] = s.name; });
+    return fetch(API + (API.indexOf('?') > -1 ? '&' : '?') + 'action=list')
+      .then(function (r) { return r.json(); })
       .then(function (items) {
-        var validKeys = {};
-        students.forEach(function (s) { validKeys[s.key] = true; });
-        var out = [];
-        (items || []).forEach(function (it) {
-          if (it.pull_request) return;
-          var tm = String(it.title || '').match(/^\[([^\]]+)\]\s*(.*)$/);
-          var key = parseMarker(it.body);
-          if (!key || !validKeys[key]) return;
-          out.push({
-            key: key,
-            name: (tm && tm[2]) ? tm[2].trim() : (it.title || ''),
-            type: (tm && tm[1]) || 'Komentar',
-            msg: String(it.body || '').replace(/<!--SK:[^>]+-->/g, '').trim(),
-            author: (it.user && it.user.login) ? it.user.login : '',
-            date: it.created_at,
-            html: it.html_url || ''
-          });
+        return (items || []).filter(function (c) { return c && c.key && byKey[c.key]; }).map(function (c) {
+          return {
+            key: c.key,
+            name: byKey[c.key] || '',
+            type: c.type || 'Komentar',
+            msg: c.msg || '',
+            author: c.author || '',
+            date: c.date || ''
+          };
         });
-        return out;
       })
       .catch(function () { return []; });
   }
   function postComment(key, type, msg, author) {
     var st = null, i;
     for (i = 0; i < students.length; i++) if (students[i].key === key) { st = students[i]; break; }
-    var title = '[' + type + '] ' + (st ? st.name : 'Kartu');
-    var body = '<!--SK:' + key + '-->\n' +
-      'Kartu: ' + (st ? st.name + ' (' + st.jurusan + ')' : key) + '\n' +
-      (author ? 'Dari: ' + author + '\n' : '') +
-      '\n' + msg;
-    return fetch(API + '/issues', {
+    return fetch(API, {
       method: 'POST',
-      headers: headersForAuth(),
-      body: JSON.stringify({ title: title, body: body })
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ key: key, type: type, msg: msg, name: author, nama: st ? st.name : '' })
     }).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
+    }).then(function (j) {
+      if (!j || !j.ok) throw new Error('respon tidak dikenali');
+      return j;
     });
   }
 
@@ -285,9 +263,9 @@
     var st = null;
     for (var i = 0; i < students.length; i++) if (students[i].key === currentKey) { st = students[i]; break; }
     if (!msg) { $('fStatus').className = 'status err'; $('fStatus').textContent = 'Tulis dulu isi laporan / perbaikannya.'; return; }
-    if (!CONFIG.token || !API) {
+    if (!API) {
       $('fStatus').className = 'status err';
-      $('fStatus').textContent = 'Komentar belum aktif di situs ini (pengaturan token belum diisi admin).';
+      $('fStatus').textContent = 'Komentar belum diaktifkan (admin belum mengisi tautan Google Sheets di config.js).';
       return;
     }
     var btn = $('fSend');

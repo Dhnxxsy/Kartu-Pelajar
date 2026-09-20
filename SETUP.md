@@ -1,78 +1,53 @@
 # Setup deploy (sekali saja, ±10 menit)
 
-Website ini statis murni, disimpan di **GitHub** dan diupload ke **GitHub Pages**.
-Komentar pelajar disimpan sebagai **GitHub Issues** di repo yang sama, lalu ditampilkan kembali di website (dengan badge jumlah laporan baru).
+Website statis murni, disimpan di **GitHub** dan diupload ke **GitHub Pages**.
+Komentar pelajar disimpan lewat **Google Apps Script + Google Sheets** (tanpa token GitHub), lalu ditampilkan kembali di website dengan badge jumlah laporan baru.
 
 ---
 
-## Langkah 1 — Buat repo di GitHub
+## Langkah 1 — Upload ke GitHub & Pages
 
-1. Buka <https://github.com/new> (login dulu jika belum).
-2. Repository name: **`Kartu-Pelajar`**
-3. Pilih **Private** (penting: repo berisi data siswa & foto).
-4. Klik **Create repository**.
-5. Salin URL repo di halaman yang muncul, contoh: `https://github.com/username/Kartu-Pelajar.git`
-
-> Dev sekaligus juga bisa bantu push: tinggal jalankan `PUSH.bat` dan tempel URL di atas.
-
----
-
-## Langkah 2 — Aktifkan token komentar
-
-1. Buka <https://github.com/settings/tokens?type=beta>.
-2. Klik **Generate new token** → **Generate new token (beta)**.
-3. **Token name**: `kartu-komentar`
-4. **Expiration**: pilih yang panjang (misal 90 hari / custom).
-5. **Repository access**: pilih **Only select repositories** → pilih `Kartu-Pelajar`.
-6. Bagian **Permissions → Repository permissions**:
-   - set **Issues** menjadi **Read and write**
-   - biarkan yang lain **No access**.
-7. Klik **Generate token** → **salin token** (awalan `github_pat_...`). Hanya tampil sekali!
-
-## Langkah 3 — Tempel ke config.js
-
-Buka file **`js/config.js`** dan isi:
-
-```js
-window.CONFIG = {
-  owner: "USERNAME_KAMU",   // ganti dengan username GitHub
-  repo:  "Kartu-Pelajar",
-  token: "github_pat_xxxxxxxx"   // ganti dengan token tadi
-};
-```
-
-> Token ini **hanya** bisa membuat/membaca Issues di repo itu. Untuk keamanan, jangan bagikan ke orang lain.
-
----
-
-## Langkah 4 — Upload ke GitHub & aktifkan Pages
-
-1. Jalankan **`PUSH.bat`**, tempel URL repo saat diminta.
-2. Di GitHub, buka repo → **Settings** → **Pages** (menu kiri).
-3. **Source**: pilih **Deploy from a branch** → **Branch**: `main` / `(root)` → **Save**.
+1. Pastikan file sudah ter-commit (repo sudah ada: `Dhnxxsy/Kartu-Pelajar`).
+2. Jalankan **`PUSH.bat`** (atau `git push origin main`).
+3. GitHub Pages aktif otomatis via workflow `.github/workflows/pages.yml` (Actions).
 4. Tunggu ±1 menit, situs muncul di
-   **`https://USERNAME.github.io/Kartu-Pelajar/`**
+   **`https://dhnxxsy.github.io/Kartu-Pelajar/`**
 
-Bagikan URL itu ke para murid / wali kelas.
+---
+
+## Langkah 2 — Aktifkan komentar (Google Sheets, tanpa token)
+
+1. Buka file **`apps_script.gs`** (ada di folder project ini) → salin seluruh isinya.
+2. Buka <https://script.google.com> → **+ Buat proyek baru** → hapus isi `Code.gs` → tempel → simpan (Ctrl+S).
+3. Di menu atas, pastikan dropdown fungsi memilih **`setup`** → tekan **Run (▶)**.
+   - Pilih akun Google kamu → **Review permissions** → **Advanced** → **Go to (unsafe)** → **Allow**.
+   - Ini otomatis membuat spreadsheet `Kartu Pelajar - Komentar`.
+4. **Deploy → New deployment → ikon gerigi → Web app**:
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+   - **Deploy** → salin **URL** (awalan `https://script.google.com/macros/s/.../exec`).
+5. Buka **`js/config.js`** → tempel URL itu di `gsbase` → simpan.
+6. Jalankan **`PUSH.bat`** lagi agar situs pakai URL tersebut.
+7. Komentar murid kini masuk ke Google Sheet & tampil di website.
+
+> Tips: kalau nanti mengubah kode Apps Script, jalankan **Deploy → Manage deployments → ✏️ Edit → Version: New version → Deploy** biar URL-nya tetap sama.
 
 ---
 
 ## Cara update kartu
 
-Jika ada kartu baru / data diperbaiki:
-
-1. Rendering ulang kartu (PNG) ke folder `D:\Kartu Pelajar` → jalankan script build → hasil di folder ini otomatis menyesuaikan.
-2. Lalu jalankan **`PUSH.bat`** lagi.
+1. Rendering ulang kartu (PNG) di `D:\Kartu Pelajar` → jalankan script build → file di folder ini ikut ter-update.
+2. Jalankan **`PUSH.bat`**.
 
 ---
 
 ## Cara melihat laporan pelajar
 
-- Klik **ikon lonceng** di kanan atas website → semua laporan muncul di sana, dengan tanda berapa yang belum dibaca.
-- Alternatif: tab **Issues** di repo GitHub.
+- Klik **ikon lonceng** di kanan atas website — semua laporan tampil, lengkap dengan hitungan belum dibaca.
+- Bisa juga buka spreadsheet **`Kartu Pelajar - Komentar`** di Google Sheets.
 
 ---
 
 ## Catatan privasi
 
-Website di GitHub Pages bisa diakses publik lewat URL. Kartu berisi NIS, NISN, TTL, alamat, dan foto murid. Disarankan situs hanya dipakai dalam masa pengisian data, lalu bisa dihapus / dibuat hanya-terbuka-saat-diperlukan.
+Karena akun GitHub Free tidak mendukung Pages untuk repo private, repo `Kartu-Pelajar` dibiarkan **public** (lihat ke depan: kalau mau repo private, host di Cloudflare Pages/Netlify). Kartu berisi NIS, NISN, TTL, alamat, dan foto murid. Disarankan situs hanya dipakai selama masa pengisian data, lalu bisa dihapus.
