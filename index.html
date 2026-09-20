@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Cari dan lihat kartu pelajar SMK YAPIMDA Kelas X Tahun Ajaran 2026/2027. Temukan namamu, cek data, dan laporkan perbaikan." />
 <title>Kartu Pelajar &middot; SMK YAPIMDA 2026/2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css?v=__VERSION__" />
 <script src="js/config.js?v=__VERSION__"></script>
 </head>
@@ -54,7 +58,8 @@
 <main class="wrap">
 
   <section class="hero">
-    <h1>Cari Kartu Pelajar Kamu</h1>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <h1>Cari <span class="grad">Kartu Pelajar</span> Kamu</h1>
     <p class="lead">Masukkan nama di bawah untuk melihat kartu pelajarmu. Ada data yang salah? Laporkan lewat form di kartu — langsung masuk ke panel laporan.</p>
     <div class="searchbox">
       <svg class="search-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -135,7 +140,7 @@
   <div class="modal-dialog">
     <div class="modal-body">
       <div class="shot">
-        <img id="modalImg" alt="Kartu pelajar" />
+        <img id="modalImg" alt="Kartu pelajar — klik untuk memperbesar" />
       </div>
       <div class="detail">
         <div class="detail-head">
@@ -172,6 +177,10 @@
 </div>
 
 <div id="toast" class="toast hidden"></div>
+
+<button id="toTop" class="to-top hidden" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 6-6 6 6"/></svg>
+</button>
 
 <script src="js/app.js?v=__VERSION__"></script>
 </body>

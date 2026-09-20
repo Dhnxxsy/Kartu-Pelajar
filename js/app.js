@@ -16,7 +16,7 @@
 
   var $ = function (id) { return document.getElementById(id); };
   var grid = $('grid'), searchInput = $('searchInput'), emptyState = $('emptyState'),
-      resultCount = $('resultCount'), modal = $('modal'), toast = $('toast');
+      resultCount = $('resultCount'), modal = $('modal'), toast = $('toast'), modalImg = $('modalImg');
 
   var JUR_LABEL = { MP1: 'Manajemen Perkantoran 1', MP2: 'Manajemen Perkantoran 2', AK: 'Akuntansi', PBS: 'Perbankan Syariah' };
 
@@ -132,7 +132,8 @@
     prob = problemByKey(key);
     currentKey = key;
 
-    $('modalImg').src = st.img;
+    modalImg.classList.remove('zoomed');
+    modalImg.src = st.img;
     $('mName').textContent = st.name;
     $('mChip').textContent = prob ? '⚠ Data belum lengkap' : '✓ Data lengkap';
     $('mChip').className = 'chip static ' + (prob ? 'status-warn' : 'status-ok');
@@ -156,6 +157,7 @@
     document.body.style.overflow = 'hidden';
   }
   function closeModal() {
+    modalImg.classList.remove('zoomed');
     modal.classList.add('hidden');
     document.body.style.overflow = '';
     currentKey = null;
@@ -268,7 +270,13 @@
   });
   $('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); closePanel(); } });
+  modalImg.addEventListener('click', function () { modalImg.classList.toggle('zoomed'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (modalImg.classList.contains('zoomed')) { modalImg.classList.remove('zoomed'); return; }
+      closeModal(); closePanel();
+    }
+  });
 
   $('fSend').addEventListener('click', function () {
     var msg = $('fMsg').value.trim();
@@ -318,13 +326,41 @@
   }
 
   /* ---------------- init ---------------- */
-  loadData().then(function () {
-    render();
-    return listComments();
-  }).then(function (cs) {
-    comments = cs;
-    renderPanel();
-  }).catch(function () {
-    grid.innerHTML = '<div class="empty"><p>Gagal memuat data. Muat ulang halaman.</p></div>';
+  function boot() {
+    loadData().then(function () {
+      render();
+      return listComments();
+    }).then(function (cs) {
+      comments = cs;
+      renderPanel();
+    }).catch(function () {
+      grid.innerHTML =
+        '<div class="es-card es-error">' +
+          '<div class="es-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7"/><path d="M12 17h.01"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg>' +
+          '</div>' +
+          '<h3>Gagal memuat data</h3>' +
+          '<p class="es-desc">Terjadi masalah saat memuat data kartu. Periksa koneksi internet kamu, lalu coba lagi.</p>' +
+          '<button id="retryBtn" class="btn primary">Coba lagi</button>' +
+        '</div>';
+      var rb = $('retryBtn');
+      if (rb) rb.addEventListener('click', function () { grid.innerHTML = ''; boot(); });
+    });
+  }
+  boot();
+
+  /* ---------------- tombol kembali ke atas ---------------- */
+  var toTop = $('toTop');
+  var scrollTicking = false;
+  window.addEventListener('scroll', function () {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(function () {
+      toTop.classList.toggle('hidden', window.pageYOffset < 480);
+      scrollTicking = false;
+    });
+  }, { passive: true });
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
