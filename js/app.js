@@ -151,6 +151,9 @@
     $('fName').value = '';
     $('fStatus').textContent = '';
     $('fStatus').className = 'status';
+    var isDesk = window.innerWidth >= 761;
+    setSec('secForm', isDesk || !!prob);
+    setSec('secComments', isDesk);
     renderCommentList(key);
 
     modal.classList.remove('hidden');
@@ -166,6 +169,7 @@
   function renderCommentList(key) {
     var box = $('commentList');
     var mine = comments.filter(function (c) { return c.key === key; });
+    updateCmtCount(mine.length);
     if (!mine.length) {
       box.innerHTML = '<div class="muted small">Belum ada laporan untuk kartu ini.</div>';
       return;
@@ -175,6 +179,19 @@
         '<span>' + fmtDate(c.date) + '</span></div>' +
         (c.author ? '<b>' + esc(c.author) + ':</b> ' : '') + esc(c.msg) + '</div>';
     }).join('');
+  }
+
+  function updateCmtCount(n) {
+    var el = $('cmtCnt');
+    if (!el) return;
+    el.textContent = n || '';
+  }
+
+  function setSec(id, open) {
+    var box = $(id);
+    var head = document.querySelector('[data-sec="' + id + '"]');
+    if (head) head.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (box) box.classList.toggle('open', open);
   }
 
   /* ---------------- comments (Google Apps Script + Sheets) ---------------- */
@@ -307,6 +324,12 @@
       $('fStatus').className = 'status err';
       $('fStatus').textContent = 'Gagal mengirim: ' + err.message + '. Coba lagi, atau hubungi admin sekolah.';
     }).finally(function () { btn.disabled = false; });
+  });
+
+  document.querySelectorAll('.sec-head').forEach(function (head) {
+    head.addEventListener('click', function () {
+      setSec(head.dataset.sec, head.getAttribute('aria-expanded') !== 'true');
+    });
   });
 
   $('bellBtn').addEventListener('click', openPanel);
