@@ -3,5 +3,5 @@
 //  (lihat SETUP.md bagian "Komentar via Google Sheets")
 // ============================================================
 window.CONFIG = {
-  gsbase: ""   // URL Web App Apps Script, contoh: https://script.google.com/macros/s/XXXX/exec
+  gsbase: "https://script.google.com/macros/s/AKfycbyXpM4MLPWwwB85Pen3sZnhKXZOakPR1P0R1BN2rRB7SUivp6_c8yPSCdxcJQtZjMuE/exec"
 };
