@@ -299,6 +299,14 @@
     renderPanel();
   });
 
+  $('bdClose').addEventListener('click', function () {
+    localStorage.setItem('kp_bd_banner_closed', '1');
+    $('bdBanner').classList.add('hidden');
+  });
+  if (localStorage.getItem('kp_bd_banner_closed') === '1') {
+    $('bdBanner').classList.add('hidden');
+  }
+
   /* ---------------- init ---------------- */
   loadData().then(function () {
     render();
