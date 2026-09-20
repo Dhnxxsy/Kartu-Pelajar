@@ -1,602 +1,602 @@
 [
- {
-  "name": "Adinda Deswitarani",
-  "nis": "12603",
-  "nisn": "0107983992",
-  "jurusan": "MP1",
-  "key": "adinda-deswitarani-MP1",
-  "img": "cards/MP1/adinda-deswitarani.jpg"
- },
- {
-  "name": "Aisyah Putri",
-  "nis": "12604",
-  "nisn": "0101182617",
-  "jurusan": "MP1",
-  "key": "aisyah-putri-MP1",
-  "img": "cards/MP1/aisyah-putri.jpg"
- },
- {
-  "name": "Amanda Hani Safitri",
-  "nis": "12605",
-  "nisn": "0109777972",
-  "jurusan": "MP1",
-  "key": "amanda-hani-safitri-MP1",
-  "img": "cards/MP1/amanda-hani-safitri.jpg"
- },
- {
-  "name": "Ardelia Dinda Putri",
-  "nis": "12606",
-  "nisn": "0107303276",
-  "jurusan": "MP1",
-  "key": "ardelia-dinda-putri-MP1",
-  "img": "cards/MP1/ardelia-dinda-putri.jpg"
- },
- {
-  "name": "Artika Rostyawati",
-  "nis": "12607",
-  "nisn": "0107873868",
-  "jurusan": "MP1",
-  "key": "artika-rostyawati-MP1",
-  "img": "cards/MP1/artika-rostyawati.jpg"
- },
- {
-  "name": "Asy Syifa",
-  "nis": "12608",
-  "nisn": "0107889446",
-  "jurusan": "MP1",
-  "key": "asy-syifa-MP1",
-  "img": "cards/MP1/asy-syifa.jpg"
- },
- {
-  "name": "Azzahra Amalia Suryani",
-  "nis": "12609",
-  "nisn": "0099006644",
-  "jurusan": "MP1",
-  "key": "azzahra-amalia-suryani-MP1",
-  "img": "cards/MP1/azzahra-amalia-suryani.jpg"
- },
- {
-  "name": "Desi Oryzafatunisa",
-  "nis": "12613",
-  "nisn": "0103145465",
-  "jurusan": "MP1",
-  "key": "desi-oryzafatunisa-MP1",
-  "img": "cards/MP1/desi-oryzafatunisa.jpg"
- },
- {
-  "name": "Febi Danialti",
-  "nis": "12614",
-  "nisn": "0109337942",
-  "jurusan": "MP1",
-  "key": "febi-danialti-MP1",
-  "img": "cards/MP1/febi-danialti.jpg"
- },
- {
-  "name": "Lely Amelya Cahyaningrum",
-  "nis": "12615",
-  "nisn": "0103573435",
-  "jurusan": "MP1",
-  "key": "lely-amelya-cahyaningrum-MP1",
-  "img": "cards/MP1/lely-amelya-cahyaningrum.jpg"
- },
- {
-  "name": "Mohammad Kaifal Dziqrullah",
-  "nis": "12616",
-  "nisn": "0107865675",
-  "jurusan": "MP1",
-  "key": "mohammad-kaifal-dziqrullah-MP1",
-  "img": "cards/MP1/mohammad-kaifal-dziqrullah.jpg"
- },
- {
-  "name": "Muhammad Adharezqi Nureza",
-  "nis": "12617",
-  "nisn": "3102332602",
-  "jurusan": "MP1",
-  "key": "muhammad-adharezqi-nureza-MP1",
-  "img": "cards/MP1/muhammad-adharezqi-nureza.jpg"
- },
- {
-  "name": "Muhammad Hidayat",
-  "nis": "12618",
-  "nisn": "0106070784",
-  "jurusan": "MP1",
-  "key": "muhammad-hidayat-MP1",
-  "img": "cards/MP1/muhammad-hidayat.jpg"
- },
- {
-  "name": "Muhammad Nur Sabila Jamil",
-  "nis": "12619",
-  "nisn": "0176385621",
-  "jurusan": "MP1",
-  "key": "muhammad-nur-sabila-jamil-MP1",
-  "img": "cards/MP1/muhammad-nur-sabila-jamil.jpg"
- },
- {
-  "name": "Muhammad Zacky Miland",
-  "nis": "12620",
-  "nisn": "0105066789",
-  "jurusan": "MP1",
-  "key": "muhammad-zacky-miland-MP1",
-  "img": "cards/MP1/muhammad-zacky-miland.jpg"
- },
- {
-  "name": "Muhammad Zulfa Febrian",
-  "nis": "12621",
-  "nisn": "3103869931",
-  "jurusan": "MP1",
-  "key": "muhammad-zulfa-febrian-MP1",
-  "img": "cards/MP1/muhammad-zulfa-febrian.jpg"
- },
- {
-  "name": "Naila Putri Hidayat",
-  "nis": "12622",
-  "nisn": "0103518646",
-  "jurusan": "MP1",
-  "key": "naila-putri-hidayat-MP1",
-  "img": "cards/MP1/naila-putri-hidayat.jpg"
- },
- {
-  "name": "Novan Putra Setiawan",
-  "nis": "12623",
-  "nisn": "0105379399",
-  "jurusan": "MP1",
-  "key": "novan-putra-setiawan-MP1",
-  "img": "cards/MP1/novan-putra-setiawan.jpg"
- },
- {
-  "name": "Nur Yasri Arifami",
-  "nis": "12624",
-  "nisn": "0101103204",
-  "jurusan": "MP1",
-  "key": "nur-yasri-arifami-MP1",
-  "img": "cards/MP1/nur-yasri-arifami.jpg"
- },
- {
-  "name": "Rhawuf Sanara",
-  "nis": "12625",
-  "nisn": "0112748669",
-  "jurusan": "MP1",
-  "key": "rhawuf-sanara-MP1",
-  "img": "cards/MP1/rhawuf-sanara.jpg"
- },
- {
-  "name": "Riana Rachmawati",
-  "nis": "12626",
-  "nisn": "0105784927",
-  "jurusan": "MP1",
-  "key": "riana-rachmawati-MP1",
-  "img": "cards/MP1/riana-rachmawati.jpg"
- },
- {
-  "name": "Rizki Bintang Fitriono",
-  "nis": "12627",
-  "nisn": "3114098196",
-  "jurusan": "MP1",
-  "key": "rizki-bintang-fitriono-MP1",
-  "img": "cards/MP1/rizki-bintang-fitriono.jpg"
- },
- {
-  "name": "Vanesa Ardelia Fasya",
-  "nis": "12628",
-  "nisn": "0107943363",
-  "jurusan": "MP1",
-  "key": "vanesa-ardelia-fasya-MP1",
-  "img": "cards/MP1/vanesa-ardelia-fasya.jpg"
- },
- {
-  "name": "Wulan Sari",
-  "nis": "12629",
-  "nisn": "0103713989",
-  "jurusan": "MP1",
-  "key": "wulan-sari-MP1",
-  "img": "cards/MP1/wulan-sari.jpg"
- },
- {
-  "name": "Ahmad Luthfi",
-  "nis": "12630",
-  "nisn": "0093650914",
-  "jurusan": "MP2",
-  "key": "ahmad-luthfi-MP2",
-  "img": "cards/MP2/ahmad-luthfi.jpg"
- },
- {
-  "name": "Ahmad Yazid",
-  "nis": "12631",
-  "nisn": "0106671753",
-  "jurusan": "MP2",
-  "key": "ahmad-yazid-MP2",
-  "img": "cards/MP2/ahmad-yazid.jpg"
- },
- {
-  "name": "Asiil Humaira",
-  "nis": "12634",
-  "nisn": "3101314442",
-  "jurusan": "MP2",
-  "key": "asiil-humaira-MP2",
-  "img": "cards/MP2/asiil-humaira.jpg"
- },
- {
-  "name": "Azira Rasti Maulida",
-  "nis": "12635",
-  "nisn": "0117809812",
-  "jurusan": "MP2",
-  "key": "azira-rasti-maulida-MP2",
-  "img": "cards/MP2/azira-rasti-maulida.jpg"
- },
- {
-  "name": "Carissa Putri Arahman",
-  "nis": "12636",
-  "nisn": "0107243617",
-  "jurusan": "MP2",
-  "key": "carissa-putri-arahman-MP2",
-  "img": "cards/MP2/carissa-putri-arahman.jpg"
- },
- {
-  "name": "Carissa Zilvia",
-  "nis": "12637",
-  "nisn": "",
-  "jurusan": "MP2",
-  "key": "carissa-zilvia-MP2",
-  "img": "cards/MP2/carissa-zilvia.jpg"
- },
- {
-  "name": "Davin Putra Indata",
-  "nis": "12638",
-  "nisn": "0104649404",
-  "jurusan": "MP2",
-  "key": "davin-putra-indata-MP2",
-  "img": "cards/MP2/davin-putra-indata.jpg"
- },
- {
-  "name": "Delia Ratna Sari",
-  "nis": "12639",
-  "nisn": "0109554956",
-  "jurusan": "MP2",
-  "key": "delia-ratna-sari-MP2",
-  "img": "cards/MP2/delia-ratna-sari.jpg"
- },
- {
-  "name": "Fitra Ismatulloh",
-  "nis": "12640",
-  "nisn": "0097766280",
-  "jurusan": "MP2",
-  "key": "fitra-ismatulloh-MP2",
-  "img": "cards/MP2/fitra-ismatulloh.jpg"
- },
- {
-  "name": "Ganzaly Forianto",
-  "nis": "12641",
-  "nisn": "0111946369",
-  "jurusan": "MP2",
-  "key": "ganzaly-forianto-MP2",
-  "img": "cards/MP2/ganzaly-forianto.jpg"
- },
- {
-  "name": "Hijran Ghalifatul Rahman",
-  "nis": "12642",
-  "nisn": "0096762373",
-  "jurusan": "MP2",
-  "key": "hijran-ghalifatul-rahman-MP2",
-  "img": "cards/MP2/hijran-ghalifatul-rahman.jpg"
- },
- {
-  "name": "Indah Olyvia Pratiwi",
-  "nis": "12643",
-  "nisn": "0102137521",
-  "jurusan": "MP2",
-  "key": "indah-olyvia-pratiwi-MP2",
-  "img": "cards/MP2/indah-olyvia-pratiwi.jpg"
- },
- {
-  "name": "Marlista Citra Noviza",
-  "nis": "12644",
-  "nisn": "0101143928",
-  "jurusan": "MP2",
-  "key": "marlista-citra-noviza-MP2",
-  "img": "cards/MP2/marlista-citra-noviza.jpg"
- },
- {
-  "name": "Muhamad Khadavi",
-  "nis": "12645",
-  "nisn": "0104379759",
-  "jurusan": "MP2",
-  "key": "muhamad-khadavi-MP2",
-  "img": "cards/MP2/muhamad-khadavi.jpg"
- },
- {
-  "name": "Muhammad Amrullah A. N",
-  "nis": "12646",
-  "nisn": "0103168848",
-  "jurusan": "MP2",
-  "key": "muhammad-amrullah-a-n-MP2",
-  "img": "cards/MP2/muhammad-amrullah-a-n.jpg"
- },
- {
-  "name": "Muhammad Raka",
-  "nis": "12647",
-  "nisn": "0105954692",
-  "jurusan": "MP2",
-  "key": "muhammad-raka-MP2",
-  "img": "cards/MP2/muhammad-raka.jpg"
- },
- {
-  "name": "Mutiara Adinda Pratiwi",
-  "nis": "12648",
-  "nisn": "0102791964",
-  "jurusan": "MP2",
-  "key": "mutiara-adinda-pratiwi-MP2",
-  "img": "cards/MP2/mutiara-adinda-pratiwi.jpg"
- },
- {
-  "name": "Nabilla Nur Syafitri",
-  "nis": "12649",
-  "nisn": "0094391762",
-  "jurusan": "MP2",
-  "key": "nabilla-nur-syafitri-MP2",
-  "img": "cards/MP2/nabilla-nur-syafitri.jpg"
- },
- {
-  "name": "Naura Salsabila",
-  "nis": "12650",
-  "nisn": "'3113726428",
-  "jurusan": "MP2",
-  "key": "naura-salsabila-MP2",
-  "img": "cards/MP2/naura-salsabila.jpg"
- },
- {
-  "name": "Rosdiana Fauziah",
-  "nis": "12651",
-  "nisn": "0098355575",
-  "jurusan": "MP2",
-  "key": "rosdiana-fauziah-MP2",
-  "img": "cards/MP2/rosdiana-fauziah.jpg"
- },
- {
-  "name": "Safa Nurhafidzah",
-  "nis": "12652",
-  "nisn": "0108569695",
-  "jurusan": "MP2",
-  "key": "safa-nurhafidzah-MP2",
-  "img": "cards/MP2/safa-nurhafidzah.jpg"
- },
- {
-  "name": "Silmi Kaaffah",
-  "nis": "12653",
-  "nisn": "0103421149",
-  "jurusan": "MP2",
-  "key": "silmi-kaaffah-MP2",
-  "img": "cards/MP2/silmi-kaaffah.jpg"
- },
- {
-  "name": "Syazwina Putri",
-  "nis": "12654",
-  "nisn": "3109920091",
-  "jurusan": "MP2",
-  "key": "syazwina-putri-MP2",
-  "img": "cards/MP2/syazwina-putri.jpg"
- },
- {
-  "name": "Thoriq Syabandi Yunus",
-  "nis": "12655",
-  "nisn": "3105828823",
-  "jurusan": "MP2",
-  "key": "thoriq-syabandi-yunus-MP2",
-  "img": "cards/MP2/thoriq-syabandi-yunus.jpg"
- },
- {
-  "name": "Zharifah Athifa Istiqomah",
-  "nis": "12657",
-  "nisn": "0104478422",
-  "jurusan": "MP2",
-  "key": "zharifah-athifa-istiqomah-MP2",
-  "img": "cards/MP2/zharifah-athifa-istiqomah.jpg"
- },
- {
-  "name": "Ahmad Haiqal",
-  "nis": "12575",
-  "nisn": "0109290771",
-  "jurusan": "AK",
-  "key": "ahmad-haiqal-AK",
-  "img": "cards/AK/ahmad-haiqal.jpg"
- },
- {
-  "name": "Ahmad Raihan Tsaqib",
-  "nis": "12576",
-  "nisn": "0109884847",
-  "jurusan": "AK",
-  "key": "ahmad-raihan-tsaqib-AK",
-  "img": "cards/AK/ahmad-raihan-tsaqib.jpg"
- },
- {
-  "name": "Alfian Zain Fadhlil",
-  "nis": "12578",
-  "nisn": "0113573269",
-  "jurusan": "AK",
-  "key": "alfian-zain-fadhlil-AK",
-  "img": "cards/AK/alfian-zain-fadhlil.jpg"
- },
- {
-  "name": "Arini Dechella Vioni",
-  "nis": "12581",
-  "nisn": "3089606758",
-  "jurusan": "AK",
-  "key": "arini-dechella-vioni-AK",
-  "img": "cards/AK/arini-dechella-vioni.jpg"
- },
- {
-  "name": "Fildzah Auliani Saleh",
-  "nis": "12584",
-  "nisn": "0107933000",
-  "jurusan": "AK",
-  "key": "fildzah-auliani-saleh-AK",
-  "img": "cards/AK/fildzah-auliani-saleh.jpg"
- },
- {
-  "name": "Hana Kamilah",
-  "nis": "12586",
-  "nisn": "0095975168",
-  "jurusan": "AK",
-  "key": "hana-kamilah-AK",
-  "img": "cards/AK/hana-kamilah.jpg"
- },
- {
-  "name": "Jihan Jasmine",
-  "nis": "12588",
-  "nisn": "0103297050",
-  "jurusan": "AK",
-  "key": "jihan-jasmine-AK",
-  "img": "cards/AK/jihan-jasmine.jpg"
- },
- {
-  "name": "Kian Ahza Putra",
-  "nis": "12589",
-  "nisn": "3100924954",
-  "jurusan": "AK",
-  "key": "kian-ahza-putra-AK",
-  "img": "cards/AK/kian-ahza-putra.jpg"
- },
- {
-  "name": "Lutfia Ramadhani",
-  "nis": "12590",
-  "nisn": "0114893549",
-  "jurusan": "AK",
-  "key": "lutfia-ramadhani-AK",
-  "img": "cards/AK/lutfia-ramadhani.jpg"
- },
- {
-  "name": "M. Tasha Ezarnallah Toha",
-  "nis": "12591",
-  "nisn": "",
-  "jurusan": "AK",
-  "key": "m-tasha-ezarnallah-toha-AK",
-  "img": "cards/AK/m-tasha-ezarnallah-toha.jpg"
- },
- {
-  "name": "Muhammad Adilla Rifti",
-  "nis": "12592",
-  "nisn": "0102580378",
-  "jurusan": "AK",
-  "key": "muhammad-adilla-rifti-AK",
-  "img": "cards/AK/muhammad-adilla-rifti.jpg"
- },
- {
-  "name": "Muhammad Gibran A",
-  "nis": "12593",
-  "nisn": "",
-  "jurusan": "AK",
-  "key": "muhammad-gibran-a-AK",
-  "img": "cards/AK/muhammad-gibran-a.jpg"
- },
- {
-  "name": "Muhammad Raja Jibran",
-  "nis": "12594",
-  "nisn": "0091757612",
-  "jurusan": "AK",
-  "key": "muhammad-raja-jibran-AK",
-  "img": "cards/AK/muhammad-raja-jibran.jpg"
- },
- {
-  "name": "Muhammad Rajab Suandi",
-  "nis": "12595",
-  "nisn": "0109772175",
-  "jurusan": "AK",
-  "key": "muhammad-rajab-suandi-AK",
-  "img": "cards/AK/muhammad-rajab-suandi.jpg"
- },
- {
-  "name": "Mutiara Syah Putri",
-  "nis": "12596",
-  "nisn": "0107560036",
-  "jurusan": "AK",
-  "key": "mutiara-syah-putri-AK",
-  "img": "cards/AK/mutiara-syah-putri.jpg"
- },
- {
-  "name": "Reina Nabiiha Farah",
-  "nis": "12597",
-  "nisn": "0102538213",
-  "jurusan": "AK",
-  "key": "reina-nabiiha-farah-AK",
-  "img": "cards/AK/reina-nabiiha-farah.jpg"
- },
- {
-  "name": "Salsabila Atasya Ulfah",
-  "nis": "12599",
-  "nisn": "0103306711",
-  "jurusan": "AK",
-  "key": "salsabila-atasya-ulfah-AK",
-  "img": "cards/AK/salsabila-atasya-ulfah.jpg"
- },
- {
-  "name": "Sarifah Amani",
-  "nis": "12600",
-  "nisn": "",
-  "jurusan": "AK",
-  "key": "sarifah-amani-AK",
-  "img": "cards/AK/sarifah-amani.jpg"
- },
- {
-  "name": "Zievana Azahra",
-  "nis": "12602",
-  "nisn": "3099965866",
-  "jurusan": "AK",
-  "key": "zievana-azahra-AK",
-  "img": "cards/AK/zievana-azahra.jpg"
- },
- {
-  "name": "Ajjib Maulana",
-  "nis": "12577",
-  "nisn": "0108117699",
-  "jurusan": "PBS",
-  "key": "ajjib-maulana-PBS",
-  "img": "cards/PBS/ajjib-maulana.jpg"
- },
- {
-  "name": "Alvinno Putra Iqbal",
-  "nis": "12579",
-  "nisn": "0101810697",
-  "jurusan": "PBS",
-  "key": "alvinno-putra-iqbal-PBS",
-  "img": "cards/PBS/alvinno-putra-iqbal.jpg"
- },
- {
-  "name": "Andika Hartanto",
-  "nis": "12580",
-  "nisn": "0101818293",
-  "jurusan": "PBS",
-  "key": "andika-hartanto-PBS",
-  "img": "cards/PBS/andika-hartanto.jpg"
- },
- {
-  "name": "Aulia Putri Renggani",
-  "nis": "12582",
-  "nisn": "0103819192",
-  "jurusan": "PBS",
-  "key": "aulia-putri-renggani-PBS",
-  "img": "cards/PBS/aulia-putri-renggani.jpg"
- },
- {
-  "name": "Fitri Biani",
-  "nis": "12585",
-  "nisn": "3110413915",
-  "jurusan": "PBS",
-  "key": "fitri-biani-PBS",
-  "img": "cards/PBS/fitri-biani.jpg"
- },
- {
-  "name": "Intan Maulida",
-  "nis": "12587",
-  "nisn": "0114534264",
-  "jurusan": "PBS",
-  "key": "intan-maulida-PBS",
-  "img": "cards/PBS/intan-maulida.jpg"
- },
- {
-  "name": "Sabrina Aulia Putri",
-  "nis": "12598",
-  "nisn": "0113184134",
-  "jurusan": "PBS",
-  "key": "sabrina-aulia-putri-PBS",
-  "img": "cards/PBS/sabrina-aulia-putri.jpg"
- }
+  {
+    "name": "Adinda Deswitarani",
+    "nis": "12603",
+    "nisn": "0107983992",
+    "jurusan": "MP1",
+    "key": "adinda-deswitarani-MP1",
+    "img": "cards/MP1/adinda-deswitarani.jpg"
+  },
+  {
+    "name": "Aisyah Putri",
+    "nis": "12604",
+    "nisn": "0101182617",
+    "jurusan": "MP1",
+    "key": "aisyah-putri-MP1",
+    "img": "cards/MP1/aisyah-putri.jpg"
+  },
+  {
+    "name": "Amanda Hani Safitri",
+    "nis": "12605",
+    "nisn": "0109777972",
+    "jurusan": "MP1",
+    "key": "amanda-hani-safitri-MP1",
+    "img": "cards/MP1/amanda-hani-safitri.jpg"
+  },
+  {
+    "name": "Ardelia Dinda Putri",
+    "nis": "12606",
+    "nisn": "0107303276",
+    "jurusan": "MP1",
+    "key": "ardelia-dinda-putri-MP1",
+    "img": "cards/MP1/ardelia-dinda-putri.jpg"
+  },
+  {
+    "name": "Artika Rostyawati",
+    "nis": "12607",
+    "nisn": "0107873868",
+    "jurusan": "MP1",
+    "key": "artika-rostyawati-MP1",
+    "img": "cards/MP1/artika-rostyawati.jpg"
+  },
+  {
+    "name": "Asy Syifa",
+    "nis": "12608",
+    "nisn": "0107889446",
+    "jurusan": "MP1",
+    "key": "asy-syifa-MP1",
+    "img": "cards/MP1/asy-syifa.jpg"
+  },
+  {
+    "name": "Azzahra Amalia Suryani",
+    "nis": "12609",
+    "nisn": "0099006644",
+    "jurusan": "MP1",
+    "key": "azzahra-amalia-suryani-MP1",
+    "img": "cards/MP1/azzahra-amalia-suryani.jpg"
+  },
+  {
+    "name": "Desi Oryzafatunisa",
+    "nis": "12613",
+    "nisn": "0103145465",
+    "jurusan": "MP1",
+    "key": "desi-oryzafatunisa-MP1",
+    "img": "cards/MP1/desi-oryzafatunisa.jpg"
+  },
+  {
+    "name": "Febi Danialti",
+    "nis": "12614",
+    "nisn": "0109337942",
+    "jurusan": "MP1",
+    "key": "febi-danialti-MP1",
+    "img": "cards/MP1/febi-danialti.jpg"
+  },
+  {
+    "name": "Lely Amelya Cahyaningrum",
+    "nis": "12615",
+    "nisn": "0103573435",
+    "jurusan": "MP1",
+    "key": "lely-amelya-cahyaningrum-MP1",
+    "img": "cards/MP1/lely-amelya-cahyaningrum.jpg"
+  },
+  {
+    "name": "Mohammad Kaifal Dziqrullah",
+    "nis": "12616",
+    "nisn": "0107865675",
+    "jurusan": "MP1",
+    "key": "mohammad-kaifal-dziqrullah-MP1",
+    "img": "cards/MP1/mohammad-kaifal-dziqrullah.jpg"
+  },
+  {
+    "name": "Muhammad Adharezqi Nureza",
+    "nis": "12617",
+    "nisn": "3102332602",
+    "jurusan": "MP1",
+    "key": "muhammad-adharezqi-nureza-MP1",
+    "img": "cards/MP1/muhammad-adharezqi-nureza.jpg"
+  },
+  {
+    "name": "Muhammad Hidayat",
+    "nis": "12618",
+    "nisn": "0106070784",
+    "jurusan": "MP1",
+    "key": "muhammad-hidayat-MP1",
+    "img": "cards/MP1/muhammad-hidayat.jpg"
+  },
+  {
+    "name": "Muhammad Nur Sabila Jamil",
+    "nis": "12619",
+    "nisn": "0176385621",
+    "jurusan": "MP1",
+    "key": "muhammad-nur-sabila-jamil-MP1",
+    "img": "cards/MP1/muhammad-nur-sabila-jamil.jpg"
+  },
+  {
+    "name": "Muhammad Zacky Miland",
+    "nis": "12620",
+    "nisn": "0105066789",
+    "jurusan": "MP1",
+    "key": "muhammad-zacky-miland-MP1",
+    "img": "cards/MP1/muhammad-zacky-miland.jpg"
+  },
+  {
+    "name": "Muhammad Zulfa Febrian",
+    "nis": "12621",
+    "nisn": "3103869931",
+    "jurusan": "MP1",
+    "key": "muhammad-zulfa-febrian-MP1",
+    "img": "cards/MP1/muhammad-zulfa-febrian.jpg"
+  },
+  {
+    "name": "Naila Putri Hidayat",
+    "nis": "12622",
+    "nisn": "0103518646",
+    "jurusan": "MP1",
+    "key": "naila-putri-hidayat-MP1",
+    "img": "cards/MP1/naila-putri-hidayat.jpg"
+  },
+  {
+    "name": "Novan Putra Setiawan",
+    "nis": "12623",
+    "nisn": "0105379399",
+    "jurusan": "MP1",
+    "key": "novan-putra-setiawan-MP1",
+    "img": "cards/MP1/novan-putra-setiawan.jpg"
+  },
+  {
+    "name": "Nur Yasri Arifami",
+    "nis": "12624",
+    "nisn": "0101103204",
+    "jurusan": "MP1",
+    "key": "nur-yasri-arifami-MP1",
+    "img": "cards/MP1/nur-yasri-arifami.jpg"
+  },
+  {
+    "name": "Rhawuf Sanara",
+    "nis": "12625",
+    "nisn": "0112748669",
+    "jurusan": "MP1",
+    "key": "rhawuf-sanara-MP1",
+    "img": "cards/MP1/rhawuf-sanara.jpg"
+  },
+  {
+    "name": "Riana Rachmawati",
+    "nis": "12626",
+    "nisn": "0105784927",
+    "jurusan": "MP1",
+    "key": "riana-rachmawati-MP1",
+    "img": "cards/MP1/riana-rachmawati.jpg"
+  },
+  {
+    "name": "Rizki Bintang Fitriono",
+    "nis": "12627",
+    "nisn": "3114098196",
+    "jurusan": "MP1",
+    "key": "rizki-bintang-fitriono-MP1",
+    "img": "cards/MP1/rizki-bintang-fitriono.jpg"
+  },
+  {
+    "name": "Vanesa Ardelia Fasya",
+    "nis": "12628",
+    "nisn": "0107943363",
+    "jurusan": "MP1",
+    "key": "vanesa-ardelia-fasya-MP1",
+    "img": "cards/MP1/vanesa-ardelia-fasya.jpg"
+  },
+  {
+    "name": "Wulan Sari",
+    "nis": "12629",
+    "nisn": "0103713989",
+    "jurusan": "MP1",
+    "key": "wulan-sari-MP1",
+    "img": "cards/MP1/wulan-sari.jpg"
+  },
+  {
+    "name": "Ahmad Luthfi",
+    "nis": "12630",
+    "nisn": "0093650914",
+    "jurusan": "MP2",
+    "key": "ahmad-luthfi-MP2",
+    "img": "cards/MP2/ahmad-luthfi.jpg"
+  },
+  {
+    "name": "Ahmad Yazid",
+    "nis": "12631",
+    "nisn": "0106671753",
+    "jurusan": "MP2",
+    "key": "ahmad-yazid-MP2",
+    "img": "cards/MP2/ahmad-yazid.jpg"
+  },
+  {
+    "name": "Asiil Humaira",
+    "nis": "12634",
+    "nisn": "3101314442",
+    "jurusan": "MP2",
+    "key": "asiil-humaira-MP2",
+    "img": "cards/MP2/asiil-humaira.jpg"
+  },
+  {
+    "name": "Azira Rasti Maulida",
+    "nis": "12635",
+    "nisn": "0117809812",
+    "jurusan": "MP2",
+    "key": "azira-rasti-maulida-MP2",
+    "img": "cards/MP2/azira-rasti-maulida.jpg"
+  },
+  {
+    "name": "Carissa Putri Arahman",
+    "nis": "12636",
+    "nisn": "0107243617",
+    "jurusan": "MP2",
+    "key": "carissa-putri-arahman-MP2",
+    "img": "cards/MP2/carissa-putri-arahman.jpg"
+  },
+  {
+    "name": "Carissa Zilvia",
+    "nis": "12637",
+    "nisn": "",
+    "jurusan": "MP2",
+    "key": "carissa-zilvia-MP2",
+    "img": "cards/MP2/carissa-zilvia.jpg"
+  },
+  {
+    "name": "Davin Putra Indata",
+    "nis": "12638",
+    "nisn": "0104649404",
+    "jurusan": "MP2",
+    "key": "davin-putra-indata-MP2",
+    "img": "cards/MP2/davin-putra-indata.jpg"
+  },
+  {
+    "name": "Delia Ratna Sari",
+    "nis": "12639",
+    "nisn": "0109554956",
+    "jurusan": "MP2",
+    "key": "delia-ratna-sari-MP2",
+    "img": "cards/MP2/delia-ratna-sari.jpg"
+  },
+  {
+    "name": "Fitra Ismatulloh",
+    "nis": "12640",
+    "nisn": "0097766280",
+    "jurusan": "MP2",
+    "key": "fitra-ismatulloh-MP2",
+    "img": "cards/MP2/fitra-ismatulloh.jpg"
+  },
+  {
+    "name": "Ganzaly Forianto",
+    "nis": "12641",
+    "nisn": "0111946369",
+    "jurusan": "MP2",
+    "key": "ganzaly-forianto-MP2",
+    "img": "cards/MP2/ganzaly-forianto.jpg"
+  },
+  {
+    "name": "Hijran Ghalifatul Rahman",
+    "nis": "12642",
+    "nisn": "0096762373",
+    "jurusan": "MP2",
+    "key": "hijran-ghalifatul-rahman-MP2",
+    "img": "cards/MP2/hijran-ghalifatul-rahman.jpg"
+  },
+  {
+    "name": "Indah Olyvia Pratiwi",
+    "nis": "12643",
+    "nisn": "0102137521",
+    "jurusan": "MP2",
+    "key": "indah-olyvia-pratiwi-MP2",
+    "img": "cards/MP2/indah-olyvia-pratiwi.jpg"
+  },
+  {
+    "name": "Marlista Citra Noviza",
+    "nis": "12644",
+    "nisn": "0101143928",
+    "jurusan": "MP2",
+    "key": "marlista-citra-noviza-MP2",
+    "img": "cards/MP2/marlista-citra-noviza.jpg"
+  },
+  {
+    "name": "Muhamad Khadavi",
+    "nis": "12645",
+    "nisn": "0104379759",
+    "jurusan": "MP2",
+    "key": "muhamad-khadavi-MP2",
+    "img": "cards/MP2/muhamad-khadavi.jpg"
+  },
+  {
+    "name": "Muhammad Amrullah A. N.",
+    "nis": "12646",
+    "nisn": "0103168848",
+    "jurusan": "MP2",
+    "key": "muhammad-amrullah-a-n-MP2",
+    "img": "cards/MP2/muhammad-amrullah-a-n.jpg"
+  },
+  {
+    "name": "Muhammad Raka",
+    "nis": "12647",
+    "nisn": "0105954692",
+    "jurusan": "MP2",
+    "key": "muhammad-raka-MP2",
+    "img": "cards/MP2/muhammad-raka.jpg"
+  },
+  {
+    "name": "Mutiara Adinda Pratiwi",
+    "nis": "12648",
+    "nisn": "0102791964",
+    "jurusan": "MP2",
+    "key": "mutiara-adinda-pratiwi-MP2",
+    "img": "cards/MP2/mutiara-adinda-pratiwi.jpg"
+  },
+  {
+    "name": "Nabilla Nur Syafitri",
+    "nis": "12649",
+    "nisn": "0094391762",
+    "jurusan": "MP2",
+    "key": "nabilla-nur-syafitri-MP2",
+    "img": "cards/MP2/nabilla-nur-syafitri.jpg"
+  },
+  {
+    "name": "Naura Salsabila",
+    "nis": "12650",
+    "nisn": "3113726428",
+    "jurusan": "MP2",
+    "key": "naura-salsabila-MP2",
+    "img": "cards/MP2/naura-salsabila.jpg"
+  },
+  {
+    "name": "Rosdiana Fauziah",
+    "nis": "12651",
+    "nisn": "0098355575",
+    "jurusan": "MP2",
+    "key": "rosdiana-fauziah-MP2",
+    "img": "cards/MP2/rosdiana-fauziah.jpg"
+  },
+  {
+    "name": "Safa Nurhafidzah",
+    "nis": "12652",
+    "nisn": "0108569695",
+    "jurusan": "MP2",
+    "key": "safa-nurhafidzah-MP2",
+    "img": "cards/MP2/safa-nurhafidzah.jpg"
+  },
+  {
+    "name": "Silmi Kaaffah",
+    "nis": "12653",
+    "nisn": "0103421149",
+    "jurusan": "MP2",
+    "key": "silmi-kaaffah-MP2",
+    "img": "cards/MP2/silmi-kaaffah.jpg"
+  },
+  {
+    "name": "Syazwina Putri",
+    "nis": "12654",
+    "nisn": "3109920091",
+    "jurusan": "MP2",
+    "key": "syazwina-putri-MP2",
+    "img": "cards/MP2/syazwina-putri.jpg"
+  },
+  {
+    "name": "Thoriq Syabandi Yunus",
+    "nis": "12655",
+    "nisn": "3105828823",
+    "jurusan": "MP2",
+    "key": "thoriq-syabandi-yunus-MP2",
+    "img": "cards/MP2/thoriq-syabandi-yunus.jpg"
+  },
+  {
+    "name": "Zharifah Athifa Istiqomah",
+    "nis": "12657",
+    "nisn": "0104478422",
+    "jurusan": "MP2",
+    "key": "zharifah-athifa-istiqomah-MP2",
+    "img": "cards/MP2/zharifah-athifa-istiqomah.jpg"
+  },
+  {
+    "name": "Ahmad Haiqal",
+    "nis": "12575",
+    "nisn": "0109290771",
+    "jurusan": "AK",
+    "key": "ahmad-haiqal-AK",
+    "img": "cards/AK/ahmad-haiqal.jpg"
+  },
+  {
+    "name": "Ahmad Raihan Tsaqib",
+    "nis": "12576",
+    "nisn": "0109884847",
+    "jurusan": "AK",
+    "key": "ahmad-raihan-tsaqib-AK",
+    "img": "cards/AK/ahmad-raihan-tsaqib.jpg"
+  },
+  {
+    "name": "Alfian Zain Fadhlil",
+    "nis": "12578",
+    "nisn": "0113573269",
+    "jurusan": "AK",
+    "key": "alfian-zain-fadhlil-AK",
+    "img": "cards/AK/alfian-zain-fadhlil.jpg"
+  },
+  {
+    "name": "Arini Dechella Vioni",
+    "nis": "12581",
+    "nisn": "3089606758",
+    "jurusan": "AK",
+    "key": "arini-dechella-vioni-AK",
+    "img": "cards/AK/arini-dechella-vioni.jpg"
+  },
+  {
+    "name": "Fildzah Auliani Saleh",
+    "nis": "12584",
+    "nisn": "0107933000",
+    "jurusan": "AK",
+    "key": "fildzah-auliani-saleh-AK",
+    "img": "cards/AK/fildzah-auliani-saleh.jpg"
+  },
+  {
+    "name": "Hana Kamilah",
+    "nis": "12586",
+    "nisn": "0095975168",
+    "jurusan": "AK",
+    "key": "hana-kamilah-AK",
+    "img": "cards/AK/hana-kamilah.jpg"
+  },
+  {
+    "name": "Jihan Jasmine",
+    "nis": "12588",
+    "nisn": "0103297050",
+    "jurusan": "AK",
+    "key": "jihan-jasmine-AK",
+    "img": "cards/AK/jihan-jasmine.jpg"
+  },
+  {
+    "name": "Kian Ahza Putra",
+    "nis": "12589",
+    "nisn": "3100924954",
+    "jurusan": "AK",
+    "key": "kian-ahza-putra-AK",
+    "img": "cards/AK/kian-ahza-putra.jpg"
+  },
+  {
+    "name": "Lutfia Ramadhani",
+    "nis": "12590",
+    "nisn": "0114893549",
+    "jurusan": "AK",
+    "key": "lutfia-ramadhani-AK",
+    "img": "cards/AK/lutfia-ramadhani.jpg"
+  },
+  {
+    "name": "M. Tasha Ezarnallah Toha",
+    "nis": "12591",
+    "nisn": "",
+    "jurusan": "AK",
+    "key": "m-tasha-ezarnallah-toha-AK",
+    "img": "cards/AK/m-tasha-ezarnallah-toha.jpg"
+  },
+  {
+    "name": "Muhammad Adilla Rifti",
+    "nis": "12592",
+    "nisn": "0102580378",
+    "jurusan": "AK",
+    "key": "muhammad-adilla-rifti-AK",
+    "img": "cards/AK/muhammad-adilla-rifti.jpg"
+  },
+  {
+    "name": "Muhammad Gibran A",
+    "nis": "12593",
+    "nisn": "",
+    "jurusan": "AK",
+    "key": "muhammad-gibran-a-AK",
+    "img": "cards/AK/muhammad-gibran-a.jpg"
+  },
+  {
+    "name": "Muhammad Raja Jibran",
+    "nis": "12594",
+    "nisn": "0091757612",
+    "jurusan": "AK",
+    "key": "muhammad-raja-jibran-AK",
+    "img": "cards/AK/muhammad-raja-jibran.jpg"
+  },
+  {
+    "name": "Muhammad Rajab Suandi",
+    "nis": "12595",
+    "nisn": "0109772175",
+    "jurusan": "AK",
+    "key": "muhammad-rajab-suandi-AK",
+    "img": "cards/AK/muhammad-rajab-suandi.jpg"
+  },
+  {
+    "name": "Mutiara Syah Putri",
+    "nis": "12596",
+    "nisn": "0107560036",
+    "jurusan": "AK",
+    "key": "mutiara-syah-putri-AK",
+    "img": "cards/AK/mutiara-syah-putri.jpg"
+  },
+  {
+    "name": "Reina Nabiiha Farah",
+    "nis": "12597",
+    "nisn": "0102538213",
+    "jurusan": "AK",
+    "key": "reina-nabiiha-farah-AK",
+    "img": "cards/AK/reina-nabiiha-farah.jpg"
+  },
+  {
+    "name": "Salsabila Atasya Ulfah",
+    "nis": "12599",
+    "nisn": "0103306711",
+    "jurusan": "AK",
+    "key": "salsabila-atasya-ulfah-AK",
+    "img": "cards/AK/salsabila-atasya-ulfah.jpg"
+  },
+  {
+    "name": "Sarifah Amani",
+    "nis": "12600",
+    "nisn": "",
+    "jurusan": "AK",
+    "key": "sarifah-amani-AK",
+    "img": "cards/AK/sarifah-amani.jpg"
+  },
+  {
+    "name": "Zievana Azahra",
+    "nis": "12602",
+    "nisn": "3099965866",
+    "jurusan": "AK",
+    "key": "zievana-azahra-AK",
+    "img": "cards/AK/zievana-azahra.jpg"
+  },
+  {
+    "name": "Ajjib Maulana",
+    "nis": "12577",
+    "nisn": "0108117699",
+    "jurusan": "PBS",
+    "key": "ajjib-maulana-PBS",
+    "img": "cards/PBS/ajjib-maulana.jpg"
+  },
+  {
+    "name": "Alvinno Putra Iqbal",
+    "nis": "12579",
+    "nisn": "0101810697",
+    "jurusan": "PBS",
+    "key": "alvinno-putra-iqbal-PBS",
+    "img": "cards/PBS/alvinno-putra-iqbal.jpg"
+  },
+  {
+    "name": "Andika Hartanto",
+    "nis": "12580",
+    "nisn": "0101818293",
+    "jurusan": "PBS",
+    "key": "andika-hartanto-PBS",
+    "img": "cards/PBS/andika-hartanto.jpg"
+  },
+  {
+    "name": "Aulia Putri Renggani",
+    "nis": "12582",
+    "nisn": "0103819192",
+    "jurusan": "PBS",
+    "key": "aulia-putri-renggani-PBS",
+    "img": "cards/PBS/aulia-putri-renggani.jpg"
+  },
+  {
+    "name": "Fitri Biani",
+    "nis": "12585",
+    "nisn": "3110413915",
+    "jurusan": "PBS",
+    "key": "fitri-biani-PBS",
+    "img": "cards/PBS/fitri-biani.jpg"
+  },
+  {
+    "name": "Intan Maulida",
+    "nis": "12587",
+    "nisn": "0114534264",
+    "jurusan": "PBS",
+    "key": "intan-maulida-PBS",
+    "img": "cards/PBS/intan-maulida.jpg"
+  },
+  {
+    "name": "Sabrina Aulia Putri",
+    "nis": "12598",
+    "nisn": "0113184134",
+    "jurusan": "PBS",
+    "key": "sabrina-aulia-putri-PBS",
+    "img": "cards/PBS/sabrina-aulia-putri.jpg"
+  }
 ]
