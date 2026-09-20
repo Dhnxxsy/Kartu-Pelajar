@@ -75,10 +75,30 @@
 
   <div id="grid" class="grid"></div>
   <div id="emptyState" class="empty hidden">
-    <div class="empty-emoji">🔍</div>
-    <p><b>Nama yang Anda cari belum ditemukan.</b><br/>
-      Kemungkinan kartu pelajar Anda masih dalam proses pembuatan, atau data pengambilan foto belum tercatat.<br/>
-      Periksa kembali ejaan penulisan nama. Apabila nama sudah benar tetapi tetap tidak ditemukan, silakan sampaikan kepada <b>guru/wali kelas Anda</b> agar dapat ditindaklanjuti.</p>
+    <div class="es-card">
+      <div class="es-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.2-3.2"></path>
+          <path d="M11 9v4"></path>
+          <path d="M9 11h4"></path>
+        </svg>
+      </div>
+      <h3>Nama yang Anda cari belum ditemukan</h3>
+      <p class="es-desc">Kartu pelajar Anda kemungkinan masih dalam proses pembuatan, atau data pengambilan foto belum tercatat di sekolah.</p>
+      <div class="es-hint">
+        <svg class="es-hint-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18h6"></path>
+          <path d="M10 22h4"></path>
+          <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"></path>
+        </svg>
+        <span><b>Tips:</b> periksa kembali ejaan nama — huruf kapital, spasi, gelar, atau nama panggilan. Coba juga tanpa gelar &ldquo;M.&rdquo; atau &ldquo;A.&rdquo; di depan nama.</span>
+      </div>
+      <div class="es-act">
+        <b>Nama sudah benar tetapi tetap tidak muncul?</b><br/>
+        Silakan sampaikan kepada <b>guru / wali kelas</b> Anda agar segera ditindaklanjuti.
+      </div>
+    </div>
   </div>
 
   <section id="issues" class="issues">
