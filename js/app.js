@@ -144,7 +144,6 @@
 
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    $('fMsg').focus();
   }
   function closeModal() {
     modal.classList.add('hidden');
