@@ -219,9 +219,13 @@
     $('bellBadge').classList.toggle('hidden', count === 0);
     $('unreadHint').textContent = count ? count + ' belum dibaca' : 'semua sudah dibaca';
     box.innerHTML = comments.map(function (c) {
+      var st = null;
+      for (var i = 0; i < students.length; i++) if (students[i].key === c.key) { st = students[i]; break; }
       return '<div class="panel-item" data-key="' + esc(c.key) + '">' +
         '<div class="p-top"><span class="p-name">' + esc(c.name) + '</span>' +
         '<span class="p-date">' + fmtDate(c.date) + '</span></div>' +
+        '<div class="p-sub">NIS ' + esc(st && st.nis ? st.nis : '-') + ' &middot; ' +
+        esc(st && st.jurusan ? (JUR_LABEL[st.jurusan] || st.jurusan) : '-') + '</div>' +
         '<div class="p-msg"><span class="c-tag ' + esc(c.type) + '">' + esc(c.type) + '</span> ' + esc(c.msg) + '</div></div>';
     }).join('');
     box.querySelectorAll('.panel-item').forEach(function (el) {
