@@ -280,7 +280,22 @@ body{
 }
 
 /* ---------- footer ---------- */
-.foot{margin-top:70px;text-align:center}
+.foot{
+  margin-top:72px;padding:32px 18px 38px;text-align:center;
+  border-top:1px solid var(--line);color:var(--muted);
+}
+.foot-badge{
+  width:46px;height:46px;margin:0 auto 12px;border-radius:14px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;
+  display:grid;place-items:center;font-weight:800;font-size:15px;letter-spacing:.5px;
+  box-shadow:0 8px 18px rgba(43,57,184,.28);
+}
+.foot-title{font-size:15px;font-weight:800;color:var(--ink)}
+.foot-sub{margin-top:3px;font-size:13px}
+.foot-note{
+  margin-top:10px;font-size:12.5px;line-height:1.6;
+  max-width:380px;margin-left:auto;margin-right:auto;
+}
 
 @media (max-width:760px){
   .empty{margin:30px 0;padding:0}
@@ -304,4 +319,5 @@ body{
   .comment{padding:9px 11px;font-size:12.5px}
   .hero h1{font-size:23px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
+  .foot{margin-top:54px;padding:24px 16px 30px}
 }
