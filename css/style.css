@@ -283,6 +283,14 @@ body{
 .foot{margin-top:70px;text-align:center}
 
 @media (max-width:760px){
+  .empty{margin:30px 0;padding:0}
+  .es-card{border-radius:16px;padding:26px 18px 20px}
+  .es-icon{width:64px;height:64px;margin-bottom:14px}
+  .es-icon svg{width:28px;height:28px}
+  .es-card h3{font-size:16px;line-height:1.4}
+  .es-desc{font-size:13.5px;line-height:1.65}
+  .es-hint{font-size:12.5px;padding:11px 12px}
+  .es-act{font-size:13px;padding:12px}
   .modal{padding:10px;align-items:center}
   .modal-dialog{max-width:460px;max-height:94vh;border-radius:16px}
   .modal-body{flex-direction:column;padding:12px 14px 18px;gap:14px}
