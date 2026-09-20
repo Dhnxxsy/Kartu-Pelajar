@@ -4,5 +4,5 @@
 window.CONFIG = {
   owner: "Dhnxxsy",         // 1) USERNAME GitHub kamu
   repo:  "Kartu-Pelajar",   // 2) NAMA repo
-  token: "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"
+  token: "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"
 };

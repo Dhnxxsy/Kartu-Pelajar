@@ -183,12 +183,14 @@
         return r.json();
       })
       .then(function (items) {
+        var validKeys = {};
+        students.forEach(function (s) { validKeys[s.key] = true; });
         var out = [];
         (items || []).forEach(function (it) {
           if (it.pull_request) return;
           var tm = String(it.title || '').match(/^\[([^\]]+)\]\s*(.*)$/);
           var key = parseMarker(it.body);
-          if (!key) return;
+          if (!key || !validKeys[key]) return;
           out.push({
             key: key,
             name: (tm && tm[2]) ? tm[2].trim() : (it.title || ''),
