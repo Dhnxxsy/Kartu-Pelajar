@@ -3,7 +3,7 @@
   'use strict';
 
   var CONFIG = window.CONFIG || { owner: '', repo: '', token: '' };
-  var API = CONFIG.repo ? ('https://api.github.com/repos/' + CONFIG.owner + '/' + CONFIG.repo) : null;
+  var API = CONFIG.gsbase ? CONFIG.gsbase : null;
 
   var students = [];
   var problems = [];
