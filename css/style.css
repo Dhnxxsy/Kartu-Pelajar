@@ -247,8 +247,17 @@ body{
 .foot{margin-top:70px;text-align:center}
 
 @media (max-width:760px){
-  .modal-body{flex-direction:column;padding:16px}
-  .shot{flex:none}
+  .modal{padding:10px;align-items:center}
+  .modal-dialog{max-width:460px;max-height:94vh;border-radius:16px}
+  .modal-body{flex-direction:column;padding:12px 14px 18px;gap:14px}
+  .shot{flex:none;max-width:400px;width:100%;margin:0 auto}
+  .shot img{border-radius:10px}
+  .modal-close{top:10px;right:10px;width:36px;height:36px;font-size:20px}
+  .detail-head h2{font-size:18px}
+  .meta{margin:10px 0;font-size:13px}
+  .meta td{padding:5px 0}
+  .comment-list{gap:7px}
+  .comment{padding:9px 11px;font-size:12.5px}
   .hero h1{font-size:23px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
 }
