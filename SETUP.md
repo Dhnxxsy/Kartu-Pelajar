@@ -8,10 +8,10 @@ Komentar pelajar disimpan sebagai **GitHub Issues** di repo yang sama, lalu dita
 ## Langkah 1 — Buat repo di GitHub
 
 1. Buka <https://github.com/new> (login dulu jika belum).
-2. Repository name: **`kartu-pelajar-preview`**
+2. Repository name: **`Kartu-Pelajar`**
 3. Pilih **Private** (penting: repo berisi data siswa & foto).
 4. Klik **Create repository**.
-5. Salin URL repo di halaman yang muncul, contoh: `https://github.com/username/kartu-pelajar-preview.git`
+5. Salin URL repo di halaman yang muncul, contoh: `https://github.com/username/Kartu-Pelajar.git`
 
 > Dev sekaligus juga bisa bantu push: tinggal jalankan `PUSH.bat` dan tempel URL di atas.
 
@@ -23,7 +23,7 @@ Komentar pelajar disimpan sebagai **GitHub Issues** di repo yang sama, lalu dita
 2. Klik **Generate new token** → **Generate new token (beta)**.
 3. **Token name**: `kartu-komentar`
 4. **Expiration**: pilih yang panjang (misal 90 hari / custom).
-5. **Repository access**: pilih **Only select repositories** → pilih `kartu-pelajar-preview`.
+5. **Repository access**: pilih **Only select repositories** → pilih `Kartu-Pelajar`.
 6. Bagian **Permissions → Repository permissions**:
    - set **Issues** menjadi **Read and write**
    - biarkan yang lain **No access**.
@@ -36,7 +36,7 @@ Buka file **`js/config.js`** dan isi:
 ```js
 window.CONFIG = {
   owner: "USERNAME_KAMU",   // ganti dengan username GitHub
-  repo:  "kartu-pelajar-preview",
+  repo:  "Kartu-Pelajar",
   token: "github_pat_xxxxxxxx"   // ganti dengan token tadi
 };
 ```
@@ -51,7 +51,7 @@ window.CONFIG = {
 2. Di GitHub, buka repo → **Settings** → **Pages** (menu kiri).
 3. **Source**: pilih **Deploy from a branch** → **Branch**: `main` / `(root)` → **Save**.
 4. Tunggu ±1 menit, situs muncul di
-   **`https://USERNAME.github.io/kartu-pelajar-preview/`**
+   **`https://USERNAME.github.io/Kartu-Pelajar/`**
 
 Bagikan URL itu ke para murid / wali kelas.
 
