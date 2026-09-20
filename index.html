@@ -29,7 +29,9 @@
 
 <!-- Banner info: Kelas BD masih diproses -->
 <div id="bdBanner" class="bd-banner">
-  <span class="bd-banner-ico">🚧</span>
+  <span class="bd-banner-ico" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8a2 2 0 0 1 2-2h6"/><rect x="7" y="4" width="8" height="3" rx="1"/><path d="M14 6v4a2 2 0 0 0 2 2h4"/><path d="M14 6h2a3 3 0 0 1 3 3v4"/><path d="M17 20v-1"/><path d="M11 16h2"/></svg>
+  </span>
   <span class="bd-banner-text"><b>Kelas BD (Bisnis Digital)</b> masih dalam proses — kartu untuk siswa kelas BD akan menyusul.</span>
   <button id="bdClose" class="bd-banner-close" title="Tutup">&times;</button>
 </div>
@@ -69,11 +71,20 @@
     <button class="chip" data-jur="PBS">PBS <span id="cntPBS"></span></button>
   </nav>
 
-  <div class="result-bar">
-    <span id="resultCount">—</span>
-  </div>
+  <div class="result-bar" aria-live="polite">
+  <span id="resultCount">&nbsp;</span>
+</div>
 
-  <div id="grid" class="grid"></div>
+  <div id="grid" class="grid" aria-live="polite">
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+    <div class="skel-card"><div class="skel-img"></div><div class="skel-line"></div></div>
+  </div>
   <div id="emptyState" class="empty hidden">
     <div class="es-card">
       <div class="es-icon" aria-hidden="true">
@@ -104,7 +115,7 @@
   <section id="issues" class="issues">
     <div class="issues-head">
       <div>
-        <h2><span class="warn-ico">⚠️</span> Data yang masih perlu dilengkapi</h2>
+        <h2><span class="warn-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span> Data yang masih perlu dilengkapi</h2>
         <p class="muted">Ada <b id="issueTotal"></b> siswa yang TTL / alamatnya belum masuk data sekolah. Klik kartunya, lalu isi lewat kolom komentar.</p>
       </div>
     </div>
@@ -137,16 +148,16 @@
           <tr><td>Jurusan</td><td id="mJur"></td></tr>
         </table>
         <div id="problemBox" class="problem-box hidden">
-          <div class="problem-title">⚠️ Data belum lengkap</div>
+          <div class="problem-title"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg> Data belum lengkap</div>
           <p id="mProblem"></p>
           <div id="mPerbaikan" class="perbaikan"></div>
         </div>
         <h3 class="sub">Lapor / Perbaiki data</h3>
         <div class="form">
           <select id="fType">
-            <option value="Perbaikan">✏️ Perbaikan data</option>
-            <option value="Komentar">💬 Komentar</option>
-            <option value="Pertanyaan">❓ Pertanyaan</option>
+            <option value="Perbaikan">Perbaikan data</option>
+            <option value="Komentar">Komentar</option>
+            <option value="Pertanyaan">Pertanyaan</option>
           </select>
           <textarea id="fMsg" rows="3" placeholder="Ketik perbaikan / komentar kamu di sini… (contoh: TTL saya Jakarta, 13 Agustus 2010 dan alamat saya Jl. …)"></textarea>
           <input id="fName" type="text" placeholder="Nama kamu (opsional)" />

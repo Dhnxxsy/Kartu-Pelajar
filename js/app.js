@@ -39,6 +39,14 @@
     return dte + ' ' + mo + ', ' + hh + ':' + mm;
   }
   function norm(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
+  function debounce(fn, ms) {
+    var t;
+    return function () {
+      var a = arguments, c = this;
+      clearTimeout(t);
+      t = setTimeout(function () { fn.apply(c, a); }, ms);
+    };
+  }
 
   /* ---------------- data ---------------- */
   function loadData() {
@@ -88,7 +96,8 @@
         '</div></div>';
     }).join('');
 
-    grid.querySelectorAll('.tile').forEach(function (t) {
+    grid.querySelectorAll('.tile').forEach(function (t, i) {
+      t.style.animationDelay = (i % 14) * 0.022 + 's';
       t.addEventListener('click', function () { openModal(t.dataset.key); });
       t.addEventListener('keydown', function (e) { if (e.key === 'Enter') openModal(t.dataset.key); });
     });
@@ -244,11 +253,11 @@
   function closePanel() { $('commentPanel').classList.remove('open'); }
 
   /* ---------------- events ---------------- */
-  searchInput.addEventListener('input', function () {
+  searchInput.addEventListener('input', debounce(function () {
     query = searchInput.value.trim();
     $('clearSearch').classList.toggle('hidden', !query);
     render();
-  });
+  }, 130));
   $('clearSearch').addEventListener('click', function () { searchInput.value = ''; query = ''; this.classList.add('hidden'); render(); });
   $('chips').addEventListener('click', function (e) {
     var chip = e.target.closest('.chip');
