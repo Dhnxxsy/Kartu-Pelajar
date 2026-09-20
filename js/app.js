@@ -42,9 +42,10 @@
 
   /* ---------------- data ---------------- */
   function loadData() {
+    var ver = window.VERSION ? '?v=' + window.VERSION : '';
     return Promise.all([
-      fetch('data/data.json').then(function (r) { return r.json(); }),
-      fetch('data/problems.json').then(function (r) { return r.json(); })
+      fetch('data/data.json' + ver).then(function (r) { return r.json(); }),
+      fetch('data/problems.json' + ver).then(function (r) { return r.json(); })
     ]).then(function (arr) {
       students = arr[0];
       problems = arr[1];

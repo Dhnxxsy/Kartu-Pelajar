@@ -31,6 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Injeksi versi (cache-busting)
+        run: |
+          SHA="${{ github.sha }}"
+          sed -i "s/__VERSION__/${SHA}/g" index.html js/config.js js/app.js
+          echo "VERSION di-set ke: ${SHA}"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
