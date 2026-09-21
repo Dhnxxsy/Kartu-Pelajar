@@ -99,14 +99,26 @@
     });
   }
 
+  function tileImgHTML(s, i) {
+    var ver = window.VERSION ? '?v=' + window.VERSION : '';
+    var thumb = 'cards/thumb/' + s.key + '.jpg' + ver;
+    var webp = 'cards/thumb/' + s.key + '.webp' + ver;
+    var attrs = i < 4
+      ? 'loading="eager" fetchpriority="high" decoding="async"'
+      : 'loading="lazy" decoding="async"';
+    return '<picture>' +
+      '<source type="image/webp" srcset="' + esc(webp) + '">' +
+      '<img ' + attrs + ' src="' + esc(thumb) + '" alt="Kartu ' + esc(s.name) + '">' +
+      '</picture>';
+  }
+
   function tileHTML(s, i) {
     var badge = verifiedMap[s.key] === true
       ? '<span class="ver-badge" title="Kartu terverifikasi">' +
         '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>'
       : '';
     return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0" style="animation-delay:' + ((i % 14) * 0.022) + 's">' +
-      '<div class="imgwrap">' + badge +
-      '<img loading="lazy" src="' + esc(imgUrl(s.img)) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
+      '<div class="imgwrap">' + badge + tileImgHTML(s, i) + '</div>' +
       '<div class="cap"><div><b>' + esc(s.name) + '</b><small>' + esc(JUR_LABEL[s.jurusan] || s.jurusan) + '</small></div>' +
       '</div></div>';
   }
