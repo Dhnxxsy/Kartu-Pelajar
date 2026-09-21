@@ -150,22 +150,7 @@ body{
 .hero-title{
   font-size:clamp(27px,5vw,40px);line-height:1.16;letter-spacing:-.55px;
 }
-.hero-title .grad-hl{
-  position:relative;display:inline-block;
-  background:linear-gradient(175deg,#5a6cf2 0%,var(--brand) 32%,#6d4be0 65%,#7a3fd6 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hl{
-  position:absolute;left:3.5%;right:3.5%;bottom:-8px;width:93%;height:15px;
-  overflow:visible;pointer-events:none;
-  opacity:0;animation:hlFade .3s .3s var(--ease) forwards;
-}
-.hl path{
-  stroke-dasharray:260;stroke-dashoffset:260;
-  animation:hlDraw .8s .4s cubic-bezier(.5,.1,.25,1) forwards;
-}
-@keyframes hlFade{to{opacity:1}}
-@keyframes hlDraw{to{stroke-dashoffset:0}}
+
 .lead{color:var(--muted);margin:16px auto 0;max-width:620px;font-size:15px;line-height:1.7}
 .searchbox{position:relative;max-width:620px;margin:22px auto 0}
 .searchbox .search-ico{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted)}
