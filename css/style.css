@@ -147,18 +147,6 @@ body{
   background:radial-gradient(55% 80% at 50% 0%, rgba(59,75,216,.14), transparent 72%);
   z-index:-1;
 }
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;border:1px solid var(--line);
-  color:var(--brand);font-size:12px;font-weight:700;letter-spacing:.2px;
-  padding:6px 14px 6px 11px;border-radius:999px;
-  box-shadow:var(--shadow-sm);margin-bottom:16px;
-}
-.eyebrow-dot{
-  width:8px;height:8px;border-radius:50%;flex:none;
-  background:linear-gradient(135deg,var(--accent),#ff6f91);
-  box-shadow:0 0 0 3px rgba(255,176,32,.18);
-}
 .hero-title{
   font-size:clamp(27px,5vw,40px);line-height:1.22;letter-spacing:-.55px;
 }
@@ -168,13 +156,15 @@ body{
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hl{
-  position:absolute;left:4%;right:4%;bottom:-9px;width:92%;height:16px;
+  position:absolute;left:3.5%;right:3.5%;bottom:-8px;width:93%;height:15px;
   overflow:visible;pointer-events:none;
+  opacity:0;animation:hlFade .3s .3s var(--ease) forwards;
 }
 .hl path{
-  stroke-dasharray:240;stroke-dashoffset:240;
-  animation:hlDraw 1.15s .45s var(--ease) forwards;
+  stroke-dasharray:260;stroke-dashoffset:260;
+  animation:hlDraw .8s .4s cubic-bezier(.5,.1,.25,1) forwards;
 }
+@keyframes hlFade{to{opacity:1}}
 @keyframes hlDraw{to{stroke-dashoffset:0}}
 .lead{color:var(--muted);margin:16px auto 0;max-width:620px;font-size:15px;line-height:1.7}
 .searchbox{position:relative;max-width:620px;margin:22px auto 0}
@@ -575,7 +565,6 @@ body{
   .confirm-dialog{max-width:100%;width:calc(100vw - 32px);padding:20px 16px;border-radius:16px}
   .ver-txt small{font-size:11px}
   .hero-title{font-size:clamp(24px,8vw,30px);letter-spacing:-.4px}
-  .hero-eyebrow{font-size:11px;padding:5px 12px 5px 9px;margin-bottom:13px}
   .lead{font-size:14px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
   .foot{margin-top:54px;padding:24px 16px 30px}
