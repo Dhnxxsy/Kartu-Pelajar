@@ -66,6 +66,11 @@
     return null;
   }
 
+  /* URL gambar + cache-busting versi deploy (mencegah browser memakai JPG lama) */
+  function imgUrl(s) {
+    return s + (window.VERSION ? '?v=' + window.VERSION : '');
+  }
+
   /* ---------------- render ---------------- */
   function render() {
     $('cntAll').textContent = students.length;
@@ -91,7 +96,7 @@
       var chipCls = prob ? 'status-warn' : 'status-ok';
       var chipTxt = prob ? '⚠ lengkapi' : '✓ ok';
       return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0">' +
-        '<div class="imgwrap"><img loading="lazy" src="' + esc(s.img) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
+        '<div class="imgwrap"><img loading="lazy" src="' + esc(imgUrl(s.img)) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
         '<div class="cap"><div><b>' + esc(s.name) + '</b><small>' + esc(JUR_LABEL[s.jurusan] || s.jurusan) + '</small></div>' +
         '</div></div>';
     }).join('');
@@ -133,7 +138,7 @@
     currentKey = key;
 
     modalImg.classList.remove('zoomed');
-    modalImg.src = st.img;
+    modalImg.src = imgUrl(st.img);
     $('mName').textContent = st.name;
     $('mChip').textContent = prob ? '⚠ Data belum lengkap' : '✓ Data lengkap';
     $('mChip').className = 'chip static ' + (prob ? 'status-warn' : 'status-ok');
