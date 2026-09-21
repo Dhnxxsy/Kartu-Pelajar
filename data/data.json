@@ -53,7 +53,8 @@
   "nisn": "0099006644",
   "jurusan": "MP1",
   "key": "azzahra-amalia-suryani-MP1",
-  "img": "cards/MP1/azzahra-amalia-suryani.jpg"
+  "img": "cards/MP1/azzahra-amalia-suryani.jpg",
+  "hidden": true
  },
  {
   "name": "Desi Oryzafatunisa",

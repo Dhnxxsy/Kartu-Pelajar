@@ -57,8 +57,10 @@
       fetch('data/data.json' + ver).then(function (r) { return r.json(); }),
       fetch('data/problems.json' + ver).then(function (r) { return r.json(); })
     ]).then(function (arr) {
-      students = arr[0];
-      problems = arr[1];
+      students = arr[0].filter(function (s) { return !s.hidden; });
+      var visibleKeys = {};
+      students.forEach(function (s) { visibleKeys[s.key] = true; });
+      problems = arr[1].filter(function (p) { return visibleKeys[p.key]; });
       students.forEach(function (s) { totalPerJur[s.jurusan]++; });
     });
   }
