@@ -152,7 +152,7 @@ body{
 }
 .hero-title .grad-hl{
   position:relative;display:inline-block;
-  background:linear-gradient(100deg,var(--brand) 15%,#6d4be0 55%,var(--brand2) 95%);
+  background:linear-gradient(90deg,var(--brand) 2%,#6d4be0 48%,var(--brand2) 98%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hl{
