@@ -23,6 +23,9 @@ var SHEET_NAME = 'Komentar';
 var STUDENT_URL = 'https://dhnxxsy.github.io/Kartu-Pelajar/data/data.json';
 // kolom: 1 Waktu, 2 NIS, 3 NISN, 4 Kelas, 5 Nama Siswa, 6 KartuKey,
 //        7 Tipe, 8 Nama Pengirim, 9 Isi Laporan
+// Tipe dapat berupa: Perbaikan, Komentar, Pertanyaan, Verifikasi, Batal Verifikasi.
+// (Verifikasi/Batal Verifikasi dipakai tombol "Verifikasi" di kartu; di simpan
+//  di sheet yang sama agar tanpa perlu menambah kolom atau merombak sheet.)
 var HEADERS = ['Waktu', 'NIS', 'NISN', 'Kelas', 'Nama Siswa', 'KartuKey', 'Tipe', 'Nama Pengirim', 'Isi Laporan'];
 
 function setup() {

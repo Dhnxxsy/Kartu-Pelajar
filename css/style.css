@@ -53,6 +53,7 @@ body{
 @keyframes imgIn{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
 @keyframes toastIn{from{opacity:0;transform:translate(-50%,18px)}to{opacity:1;transform:translate(-50%,0)}}
 @keyframes shimmer{to{background-position:-200% 0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
 
 /* ---------- topbar ---------- */
 .topbar{
@@ -158,6 +159,13 @@ body{
 .tile:active{transform:scale(.985)}
 .tile .imgwrap{aspect-ratio:1016/661;background:#e8ebf5;overflow:hidden;position:relative}
 .tile .imgwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,28,70,.07));pointer-events:none}
+.ver-badge{
+  position:absolute;top:8px;right:8px;z-index:2;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--ok);color:#fff;display:grid;place-items:center;
+  box-shadow:0 3px 10px rgba(13,154,99,.5);
+  animation:pop .25s var(--ease);
+}
 .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease)}
 .tile:hover img{transform:scale(1.04)}
 .tile .cap{
@@ -326,6 +334,9 @@ body{
 .btn.primary:disabled{opacity:.55;cursor:default;box-shadow:none}
 .btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--muted)}
 .btn.ghost:hover{color:var(--brand);border-color:var(--brand)}
+.btn.danger{background:transparent;border:1.5px solid #efc9c7;color:#c0392b}
+.btn.danger:hover{background:#c0392b;border-color:#c0392b;color:#fff}
+.btn:disabled{opacity:.55;cursor:default}
 .btn.small{padding:7px 12px;font-size:12.5px}
 .status{font-size:13px;min-height:18px}
 .status.ok{color:var(--ok)}
@@ -367,6 +378,58 @@ body{
 .panel-item .p-date{font-size:11px;color:var(--muted);white-space:nowrap}
 .panel-item .p-sub{font-size:11.5px;color:var(--muted);margin-bottom:3px}
 .panel-item .p-msg{font-size:13px;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+
+/* ---------- verifikasi kartu ---------- */
+.ver-box{margin:10px 0 2px}
+.ver-state{
+  display:flex;align-items:center;gap:11px;
+  border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;
+  background:#fbfcff;
+}
+.ver-state.on{background:#eefaf3;border-color:#b9e8d3}
+.ver-ico{
+  width:34px;height:34px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;display:grid;place-items:center;
+  box-shadow:0 4px 10px rgba(59,75,216,.3);
+}
+.ver-state.on .ver-ico{background:var(--ok);box-shadow:0 4px 10px rgba(13,154,99,.35)}
+.ver-txt{flex:1;min-width:0}
+.ver-txt b{display:block;font-size:13.5px;line-height:1.35}
+.ver-txt small{color:var(--muted);font-size:11.5px;line-height:1.4;display:block;margin-top:1px}
+.ver-note{margin-top:8px;font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- dialog konfirmasi ---------- */
+.confirm-dialog{
+  background:#fff;border-radius:18px;max-width:420px;width:100%;
+  padding:22px;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+  animation:dialogIn .26s var(--ease);
+  max-height:92vh;overflow:auto;
+}
+.confirm-ico{
+  width:54px;height:54px;border-radius:50%;margin:0 auto 12px;
+  display:grid;place-items:center;
+}
+.confirm-ico.verify{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:0 8px 18px rgba(59,75,216,.35)}
+.confirm-ico.cancel{background:#fbeeee;color:#c0392b}
+.confirm-dialog h3{font-size:17px;font-weight:800;line-height:1.3}
+.confirm-sub{color:var(--muted);font-size:13.5px;margin:6px 0 4px;line-height:1.6}
+.confirm-data{
+  list-style:none;margin:12px 0 0;padding:8px 12px;
+  background:#f6f8fe;border:1px solid var(--line);border-radius:12px;text-align:left;
+}
+.confirm-data li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:13px}
+.confirm-data li+li{border-top:1px dashed var(--line)}
+.confirm-data span{color:var(--muted);flex:none}
+.confirm-data b{text-align:right;word-break:break-word}
+.confirm-warn{
+  margin:12px 0 0;font-size:12.5px;color:#7a4a10;
+  background:#fdf1e4;border-radius:10px;padding:9px 11px;line-height:1.5;
+}
+.confirm-warn.cancel{background:#f6f8fe;color:var(--muted)}
+.confirm-actions{display:flex;gap:10px;margin-top:16px}
+.confirm-actions .btn{flex:1;padding:11px 10px}
 
 /* ---------- toast ---------- */
 .toast{
@@ -432,6 +495,8 @@ body{
   .detail-head h2{font-size:18px}
   .comment-list{gap:7px}
   .comment{padding:9px 11px;font-size:12.5px}
+  .confirm-dialog{max-width:100%;width:calc(100vw - 32px);padding:20px 16px;border-radius:16px}
+  .ver-txt small{font-size:11px}
   .hero h1{font-size:23px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
   .foot{margin-top:54px;padding:24px 16px 30px}

@@ -8,6 +8,8 @@
   var students = [];
   var problems = [];
   var comments = [];
+  var verifiedMap = {};
+  var confirmMode = 'verify';
   var activeJur = 'all';
   var query = '';
   var currentKey = null;
@@ -25,10 +27,10 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function showToast(msg, isErr) {
+  function showToast(msg, kind) {
     toast.textContent = msg;
     toast.classList.remove('hidden');
-    toast.style.background = isErr ? '#8f2f27' : '#17203f';
+    toast.style.background = kind === 'err' ? '#8f2f27' : kind === 'ok' ? 'var(--ok)' : '#17203f';
     clearTimeout(showToast._t);
     showToast._t = setTimeout(function () { toast.classList.add('hidden'); }, 4200);
   }
@@ -76,7 +78,11 @@
     $('cntAll').textContent = students.length;
     ['MP1','MP2','AK','PBS','BD'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
     $('issueTotal').textContent = problems.length;
+    renderGrid();
+    renderIssues();
+  }
 
+  function renderGrid() {
     var list = students.filter(function (s) {
       if (activeJur !== 'all' && s.jurusan !== activeJur) return false;
       if (query) {
@@ -92,11 +98,13 @@
 
     emptyState.classList.toggle('hidden', list.length !== 0);
     grid.innerHTML = list.map(function (s) {
-      var prob = problemByKey(s.key);
-      var chipCls = prob ? 'status-warn' : 'status-ok';
-      var chipTxt = prob ? '⚠ lengkapi' : '✓ ok';
+      var badge = verifiedMap[s.key] === true
+        ? '<span class="ver-badge" title="Kartu terverifikasi">' +
+          '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>'
+        : '';
       return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0">' +
-        '<div class="imgwrap"><img loading="lazy" src="' + esc(imgUrl(s.img)) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
+        '<div class="imgwrap">' + badge +
+        '<img loading="lazy" src="' + esc(imgUrl(s.img)) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
         '<div class="cap"><div><b>' + esc(s.name) + '</b><small>' + esc(JUR_LABEL[s.jurusan] || s.jurusan) + '</small></div>' +
         '</div></div>';
     }).join('');
@@ -106,8 +114,6 @@
       t.addEventListener('click', function () { openModal(t.dataset.key); });
       t.addEventListener('keydown', function (e) { if (e.key === 'Enter') openModal(t.dataset.key); });
     });
-
-    renderIssues();
   }
 
   function renderIssues() {
@@ -160,6 +166,7 @@
     setSec('secForm', isDesk || !!prob);
     setSec('secComments', isDesk);
     renderCommentList(key);
+    renderVerBox();
 
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -169,6 +176,107 @@
     modal.classList.add('hidden');
     document.body.style.overflow = '';
     currentKey = null;
+  }
+
+  function currentStudent() {
+    if (!currentKey) return null;
+    for (var i = 0; i < students.length; i++) if (students[i].key === currentKey) return students[i];
+    return null;
+  }
+
+  /* ---------------- verifikasi kartu ---------------- */
+  var CHK = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+
+  function renderVerBox() {
+    var st = currentStudent();
+    var box = $('verBox');
+    if (!st || !box) return;
+    box.innerHTML = '';
+    if (verifiedMap[st.key] === true) {
+      box.innerHTML = '<div class="ver-state on"><span class="ver-ico">' + CHK + '</span>' +
+        '<div class="ver-txt"><b>Kartu sudah diverifikasi</b><small>Kamu sudah menandai data di kartu ini benar.</small></div>' +
+        '<button id="verCancel" type="button" class="btn small ghost danger">Batalkan</button></div>';
+    } else {
+      box.innerHTML = '<div class="ver-state"><span class="ver-ico">' + CHK + '</span>' +
+        '<div class="ver-txt"><b>Data kartu kamu sudah benar?</b><small>Periksa TTL &amp; alamat di kartu, lalu verifikasi.</small></div>' +
+        '<button id="verGo" type="button" class="btn small primary">Verifikasi</button></div>';
+    }
+    box.classList.remove('hidden');
+    var go = $('verGo'), cancel = $('verCancel');
+    if (!API) {
+      var note = document.createElement('div');
+      note.className = 'ver-note';
+      note.textContent = 'Fitur verifikasi aktif setelah sekolah menghubungkan penyimpanan data (Google Sheets).';
+      box.appendChild(note);
+      if (go) go.disabled = true;
+      if (cancel) cancel.disabled = true;
+    }
+    if (go) go.addEventListener('click', function () { openConfirm('verify'); });
+    if (cancel) cancel.addEventListener('click', function () { openConfirm('cancel'); });
+  }
+
+  /* ---------------- dialog konfirmasi verifikasi ---------------- */
+  function openConfirm(mode) {
+    var st = currentStudent();
+    if (!st) return;
+    confirmMode = mode;
+    var isVer = mode === 'verify';
+    var ico = $('confirmIco');
+    ico.className = 'confirm-ico ' + (isVer ? 'verify' : 'cancel');
+    ico.innerHTML = isVer ? CHK
+      : '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+    $('confirmTitle').textContent = isVer ? 'Verifikasi kartu pelajar' : 'Batalkan verifikasi';
+    $('confirmSub').innerHTML = isVer
+      ? 'Hanya verifikasi jika <b>semua data di kartu sudah benar</b> sesuai data kamu.'
+      : 'Yakin ingin membatalkan verifikasi kartu <b>' + esc(st.name) + '</b>?';
+    $('cfName').textContent = st.name || '—';
+    $('cfNis').textContent = st.nis || '—';
+    $('cfNisn').textContent = st.nisn || '—';
+    $('cfJur').textContent = st.jurusan + ' · ' + (JUR_LABEL[st.jurusan] || st.jurusan);
+    $('confirmData').classList.toggle('hidden', !isVer);
+    var warn = $('confirmWarn');
+    warn.textContent = isVer
+      ? 'Setelah diverifikasi, kartu kamu ditandai ✓ dan pihak sekolah mengetahui kamu sudah memastikan datanya benar.'
+      : 'Status terverifikasi pada kartu ini akan dihapus.';
+    warn.className = 'confirm-warn' + (isVer ? '' : ' cancel');
+    var ok = $('cfOk');
+    ok.textContent = isVer ? 'Ya, data sudah benar' : 'Ya, batalkan';
+    ok.disabled = false;
+    ok.className = 'btn ' + (isVer ? 'primary' : 'danger');
+    $('cfCancel').textContent = 'Batal';
+    $('confirm').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeConfirm() {
+    $('confirm').classList.add('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function postVerification() {
+    var st = currentStudent();
+    if (!st || !currentKey) return;
+    if (!API) {
+      closeConfirm();
+      showToast('Verifikasi belum aktif — admin belum mengisi tautan Google Sheets.', 'err');
+      return;
+    }
+    var isVer = confirmMode === 'verify';
+    var btn = $('cfOk');
+    btn.disabled = true;
+    btn.textContent = 'Mengirim…';
+    postComment(currentKey, isVer ? 'Verifikasi' : 'Batal Verifikasi',
+      isVer ? 'Murid memverifikasi kartu — data sudah benar.' : 'Murid membatalkan verifikasi kartu.', '')
+      .then(function () {
+        verifiedMap[currentKey] = isVer;
+        closeConfirm();
+        renderVerBox();
+        renderGrid();
+        showToast(isVer ? 'Kartu berhasil diverifikasi ✓' : 'Verifikasi dibatalkan.', 'ok');
+      })
+      .catch(function (err) {
+        showToast('Gagal menyimpan verifikasi: ' + err.message + '. Coba lagi.', 'err');
+        btn.disabled = false;
+        btn.textContent = isVer ? 'Ya, data sudah benar' : 'Ya, batalkan';
+      });
   }
 
   function renderCommentList(key) {
@@ -200,7 +308,7 @@
   }
 
   /* ---------------- comments (Google Apps Script + Sheets) ---------------- */
-  function listComments() {
+  function fetchRecords() {
     if (!API) return Promise.resolve([]);
     var byKey = {};
     students.forEach(function (s) { byKey[s.key] = s.name; });
@@ -219,6 +327,22 @@
         });
       })
       .catch(function () { return []; });
+  }
+  var VER_TYPES = { 'Verifikasi': true, 'Batal Verifikasi': false };
+  function listComments() {
+    return fetchRecords().then(function (rs) {
+      return rs.filter(function (c) { return !(c.type in VER_TYPES); });
+    });
+  }
+  /* status verifikasi = catatan terbaru per siswa (list dikirim terbalik, item-0 = terbaru) */
+  function listVerified() {
+    return fetchRecords().then(function (rs) {
+      var v = {};
+      rs.forEach(function (c) {
+        if (c.type in VER_TYPES && !(c.key in v)) v[c.key] = VER_TYPES[c.type];
+      });
+      return v;
+    });
   }
   function postComment(key, type, msg, author) {
     var st = null, i;
@@ -293,8 +417,12 @@
   $('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
   modalImg.addEventListener('click', function () { modalImg.classList.toggle('zoomed'); });
+  $('confirm').addEventListener('click', function (e) { if (e.target === $('confirm')) closeConfirm(); });
+  $('cfCancel').addEventListener('click', closeConfirm);
+  $('cfOk').addEventListener('click', postVerification);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
+      if (!$('confirm').classList.contains('hidden')) { closeConfirm(); return; }
       if (modalImg.classList.contains('zoomed')) { modalImg.classList.remove('zoomed'); return; }
       closeModal(); closePanel();
     }
@@ -320,10 +448,12 @@
       $('fStatus').className = 'status ok';
       $('fStatus').textContent = 'Terima kasih! Laporan kamu sudah terkirim.';
       $('fMsg').value = '';
-      return listComments().then(function (cs) {
-        comments = cs;
+      return Promise.all([listComments(), listVerified()]).then(function (arr) {
+        comments = arr[0];
+        verifiedMap = arr[1];
         renderCommentList(currentKey);
         renderPanel();
+        renderGrid();
       });
     }).catch(function (err) {
       $('fStatus').className = 'status err';
@@ -348,11 +478,12 @@
   /* ---------------- init ---------------- */
   function boot() {
     loadData().then(function () {
-      render();
-      return listComments();
-    }).then(function (cs) {
-      comments = cs;
-      renderPanel();
+      return Promise.all([listComments(), listVerified()]).then(function (arr) {
+        comments = arr[0];
+        verifiedMap = arr[1];
+        render();
+        renderPanel();
+      });
     }).catch(function () {
       grid.innerHTML =
         '<div class="es-card es-error">' +
