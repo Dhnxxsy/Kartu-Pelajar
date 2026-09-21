@@ -97,5 +97,14 @@
     "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
     "key": "sarifah-amani-AK",
     "extra": ""
+  },
+  {
+    "no": 12,
+    "name": "Claresta Amirah Rizki",
+    "jurusan": "MP1",
+    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
+    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
+    "key": "claresta-amirah-rizki-MP1",
+    "extra": ""
   }
 ]
