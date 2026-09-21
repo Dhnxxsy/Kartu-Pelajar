@@ -91,15 +91,6 @@
   },
   {
     "no": 11,
-    "name": "Rhawuf Sanara",
-    "jurusan": "MP1",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "rhawuf-sanara-MP1",
-    "extra": ""
-  },
-  {
-    "no": 12,
     "name": "Riana Rachmawati",
     "jurusan": "MP1",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -108,7 +99,7 @@
     "extra": ""
   },
   {
-    "no": 13,
+    "no": 12,
     "name": "Rizki Bintang Fitriono",
     "jurusan": "MP1",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -117,7 +108,7 @@
     "extra": ""
   },
   {
-    "no": 14,
+    "no": 13,
     "name": "Vanesa Ardelia Fasya",
     "jurusan": "MP1",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -126,7 +117,7 @@
     "extra": ""
   },
   {
-    "no": 15,
+    "no": 14,
     "name": "Wulan Sari",
     "jurusan": "MP1",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -135,7 +126,7 @@
     "extra": ""
   },
   {
-    "no": 16,
+    "no": 15,
     "name": "Ahmad Luthfi",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -144,7 +135,7 @@
     "extra": ""
   },
   {
-    "no": 17,
+    "no": 16,
     "name": "Ahmad Yazid",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -153,7 +144,7 @@
     "extra": ""
   },
   {
-    "no": 18,
+    "no": 17,
     "name": "Carissa Zilvia",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -162,7 +153,7 @@
     "extra": "NISN masih kosong di data sekolah — tuliskan NISN juga"
   },
   {
-    "no": 19,
+    "no": 18,
     "name": "Davin Putra Indata",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -171,7 +162,7 @@
     "extra": ""
   },
   {
-    "no": 20,
+    "no": 19,
     "name": "Delia Ratna Sari",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -180,7 +171,7 @@
     "extra": ""
   },
   {
-    "no": 21,
+    "no": 20,
     "name": "Hijran Ghalifatul Rahman",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -189,7 +180,7 @@
     "extra": ""
   },
   {
-    "no": 22,
+    "no": 21,
     "name": "Marlista Citra Noviza",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -198,7 +189,7 @@
     "extra": ""
   },
   {
-    "no": 23,
+    "no": 22,
     "name": "Muhamad Khadavi",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -207,7 +198,7 @@
     "extra": ""
   },
   {
-    "no": 24,
+    "no": 23,
     "name": "Muhammad Amrullah A. N.",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -216,7 +207,7 @@
     "extra": ""
   },
   {
-    "no": 25,
+    "no": 24,
     "name": "Muhammad Raka",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -225,7 +216,7 @@
     "extra": ""
   },
   {
-    "no": 26,
+    "no": 25,
     "name": "Mutiara Adinda Pratiwi",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -234,7 +225,7 @@
     "extra": ""
   },
   {
-    "no": 27,
+    "no": 26,
     "name": "Naura Salsabila",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -243,7 +234,7 @@
     "extra": ""
   },
   {
-    "no": 28,
+    "no": 27,
     "name": "Thoriq Syabandi Yunus",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -252,7 +243,7 @@
     "extra": ""
   },
   {
-    "no": 29,
+    "no": 28,
     "name": "Ahmad Haiqal",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -261,7 +252,7 @@
     "extra": ""
   },
   {
-    "no": 30,
+    "no": 29,
     "name": "Arini Dechella Vioni",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -270,7 +261,7 @@
     "extra": ""
   },
   {
-    "no": 31,
+    "no": 30,
     "name": "Lutfia Ramadhani",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -279,7 +270,7 @@
     "extra": ""
   },
   {
-    "no": 32,
+    "no": 31,
     "name": "M. Tasha Ezarnallah Toha",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -288,7 +279,7 @@
     "extra": "NISN masih kosong di data sekolah — tuliskan NISN juga"
   },
   {
-    "no": 33,
+    "no": 32,
     "name": "Muhammad Gibran A",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -297,7 +288,7 @@
     "extra": ""
   },
   {
-    "no": 34,
+    "no": 33,
     "name": "Muhammad Raja Jibran",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -306,7 +297,7 @@
     "extra": ""
   },
   {
-    "no": 35,
+    "no": 34,
     "name": "Salsabila Atasya Ulfah",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -315,7 +306,7 @@
     "extra": ""
   },
   {
-    "no": 36,
+    "no": 35,
     "name": "Sarifah Amani",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -324,7 +315,7 @@
     "extra": ""
   },
   {
-    "no": 37,
+    "no": 36,
     "name": "Alvinno Putra Iqbal",
     "jurusan": "PBS",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -333,7 +324,7 @@
     "extra": ""
   },
   {
-    "no": 38,
+    "no": 37,
     "name": "Sabrina Aulia Putri",
     "jurusan": "PBS",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
