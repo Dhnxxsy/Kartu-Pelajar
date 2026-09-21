@@ -55,24 +55,6 @@
   },
   {
     "no": 7,
-    "name": "Ahmad Luthfi",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "ahmad-luthfi-MP2",
-    "extra": ""
-  },
-  {
-    "no": 8,
-    "name": "Ahmad Yazid",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "ahmad-yazid-MP2",
-    "extra": ""
-  },
-  {
-    "no": 9,
     "name": "Carissa Zilvia",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -81,7 +63,7 @@
     "extra": "NISN masih kosong di data sekolah — tuliskan NISN juga"
   },
   {
-    "no": 10,
+    "no": 8,
     "name": "Davin Putra Indata",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -90,70 +72,7 @@
     "extra": ""
   },
   {
-    "no": 11,
-    "name": "Delia Ratna Sari",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "delia-ratna-sari-MP2",
-    "extra": ""
-  },
-  {
-    "no": 12,
-    "name": "Hijran Ghalifatul Rahman",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "hijran-ghalifatul-rahman-MP2",
-    "extra": ""
-  },
-  {
-    "no": 13,
-    "name": "Marlista Citra Noviza",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "marlista-citra-noviza-MP2",
-    "extra": ""
-  },
-  {
-    "no": 14,
-    "name": "Muhamad Khadavi",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "muhamad-khadavi-MP2",
-    "extra": ""
-  },
-  {
-    "no": 15,
-    "name": "Muhammad Amrullah A. N.",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "muhammad-amrullah-a-n-MP2",
-    "extra": ""
-  },
-  {
-    "no": 16,
-    "name": "Muhammad Raka",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "muhammad-raka-MP2",
-    "extra": ""
-  },
-  {
-    "no": 17,
-    "name": "Mutiara Adinda Pratiwi",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "mutiara-adinda-pratiwi-MP2",
-    "extra": ""
-  },
-  {
-    "no": 18,
+    "no": 9,
     "name": "Naura Salsabila",
     "jurusan": "MP2",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -162,16 +81,7 @@
     "extra": ""
   },
   {
-    "no": 19,
-    "name": "Thoriq Syabandi Yunus",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "thoriq-syabandi-yunus-MP2",
-    "extra": ""
-  },
-  {
-    "no": 20,
+    "no": 10,
     "name": "Ahmad Haiqal",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -180,7 +90,7 @@
     "extra": ""
   },
   {
-    "no": 21,
+    "no": 11,
     "name": "Arini Dechella Vioni",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -189,7 +99,7 @@
     "extra": ""
   },
   {
-    "no": 22,
+    "no": 12,
     "name": "Lutfia Ramadhani",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -198,7 +108,7 @@
     "extra": ""
   },
   {
-    "no": 23,
+    "no": 13,
     "name": "M. Tasha Ezarnallah Toha",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -207,7 +117,7 @@
     "extra": "NISN masih kosong di data sekolah — tuliskan NISN juga"
   },
   {
-    "no": 24,
+    "no": 14,
     "name": "Muhammad Gibran A",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -216,7 +126,7 @@
     "extra": ""
   },
   {
-    "no": 25,
+    "no": 15,
     "name": "Muhammad Raja Jibran",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -225,7 +135,7 @@
     "extra": ""
   },
   {
-    "no": 26,
+    "no": 16,
     "name": "Salsabila Atasya Ulfah",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -234,7 +144,7 @@
     "extra": ""
   },
   {
-    "no": 27,
+    "no": 17,
     "name": "Sarifah Amani",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -243,7 +153,7 @@
     "extra": ""
   },
   {
-    "no": 28,
+    "no": 18,
     "name": "Alvinno Putra Iqbal",
     "jurusan": "PBS",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -252,7 +162,7 @@
     "extra": ""
   },
   {
-    "no": 29,
+    "no": 19,
     "name": "Sabrina Aulia Putri",
     "jurusan": "PBS",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
