@@ -169,7 +169,7 @@ body{
 @keyframes searchIn{to{opacity:1;transform:translateY(0) scale(1)}}
 .searchbox .search-ico{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted)}
 #searchInput{
-  width:100%;padding:16px 132px 16px 50px;border-radius:16px;border:1.5px solid var(--line);
+  width:100%;padding:16px 148px 16px 50px;border-radius:16px;border:1.5px solid var(--line);
   font-size:16px;background:#fff;box-shadow:0 14px 38px rgba(30,41,100,.12);outline:none;
   transition:border-color .18s var(--ease),box-shadow .18s var(--ease),transform .18s var(--ease);
 }
@@ -180,7 +180,7 @@ body{
   display:inline-flex;align-items:center;gap:7px;
   height:calc(100% - 14px);padding:0 20px;border:0;border-radius:12px;cursor:pointer;
   background:var(--brand);color:#fff;font-size:15px;font-weight:700;font-family:inherit;
-  overflow:hidden;position:relative;
+  overflow:hidden;
   transition:background .18s var(--ease),transform .1s var(--ease),box-shadow .18s var(--ease);
 }
 .search-btn::before{
@@ -192,7 +192,7 @@ body{
 .search-btn:hover{background:var(--brand2)}
 .search-btn:active{transform:translateY(-50%) scale(.96)}
 .clear{
-  position:absolute;right:88px;top:50%;transform:translateY(-50%);
+  position:absolute;right:112px;top:50%;transform:translateY(-50%);
   width:28px;height:28px;border:0;border-radius:50%;background:#eef1f9;cursor:pointer;
   font-size:18px;color:var(--muted);line-height:1;transition:.15s var(--ease);
   display:grid;place-items:center;
