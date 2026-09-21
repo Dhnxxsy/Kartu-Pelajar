@@ -12,13 +12,13 @@
   var query = '';
   var currentKey = null;
   var lastSeenKey = 'kp_lastseen';
-  var totalPerJur = { MP1: 0, MP2: 0, AK: 0, PBS: 0 };
+  var totalPerJur = { MP1: 0, MP2: 0, AK: 0, PBS: 0, BD: 0 };
 
   var $ = function (id) { return document.getElementById(id); };
   var grid = $('grid'), searchInput = $('searchInput'), emptyState = $('emptyState'),
       resultCount = $('resultCount'), modal = $('modal'), toast = $('toast'), modalImg = $('modalImg');
 
-  var JUR_LABEL = { MP1: 'Manajemen Perkantoran 1', MP2: 'Manajemen Perkantoran 2', AK: 'Akuntansi', PBS: 'Perbankan Syariah' };
+  var JUR_LABEL = { MP1: 'Manajemen Perkantoran 1', MP2: 'Manajemen Perkantoran 2', AK: 'Akuntansi', PBS: 'Perbankan Syariah', BD: 'Bisnis Digital' };
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -69,7 +69,7 @@
   /* ---------------- render ---------------- */
   function render() {
     $('cntAll').textContent = students.length;
-    ['MP1','MP2','AK','PBS'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
+    ['MP1','MP2','AK','PBS','BD'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
     $('issueTotal').textContent = problems.length;
 
     var list = students.filter(function (s) {
@@ -339,14 +339,6 @@
     localStorage.setItem(lastSeenKey, String(newL));
     renderPanel();
   });
-
-  $('bdClose').addEventListener('click', function () {
-    localStorage.setItem('kp_bd_banner_closed', '1');
-    $('bdBanner').classList.add('hidden');
-  });
-  if (localStorage.getItem('kp_bd_banner_closed') === '1') {
-    $('bdBanner').classList.add('hidden');
-  }
 
   /* ---------------- init ---------------- */
   function boot() {
