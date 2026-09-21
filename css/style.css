@@ -148,11 +148,11 @@ body{
   z-index:-1;
 }
 .hero-title{
-  font-size:clamp(27px,5vw,40px);line-height:1.22;letter-spacing:-.55px;
+  font-size:clamp(27px,5vw,40px);line-height:1.16;letter-spacing:-.55px;
 }
 .hero-title .grad-hl{
   position:relative;display:inline-block;
-  background:linear-gradient(90deg,var(--brand) 2%,#6d4be0 48%,var(--brand2) 98%);
+  background:linear-gradient(175deg,#5a6cf2 0%,var(--brand) 32%,#6d4be0 65%,#7a3fd6 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hl{
