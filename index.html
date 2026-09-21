@@ -13,22 +13,31 @@
 </head>
 <body>
 
-<header class="topbar">
+<div id="tbProgress" class="tb-progress" aria-hidden="true"></div>
+
+<header id="topbar" class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-logo">YP</span>
-      <div class="brand-text">
-        <strong>SMK YAPIMDA</strong>
-        <small>Kartu Pelajar · Kelas X · 2026/2027</small>
-      </div>
+      <a class="brand-link" href="#top" aria-label="Kembali ke atas — SMK YAPIMDA">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 22V12"/><path d="m7 12 5 3 5-3"/></svg>
+        </span>
+        <span class="brand-text">
+          <strong>SMK YAPIMDA</strong>
+          <small class="brand-sub">Kartu Pelajar &middot; <em>Kelas X</em> &middot; 2026/2027</small>
+        </span>
+      </a>
+      <span class="brand-badge"><span class="ok-dot"></span>Verifikasi aktif</span>
     </div>
-    <div class="bell-wrap">
-      <button id="bellBtn" class="bell" title="Lihat komentar / laporan">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    <div class="tb-actions">
+      <button id="bellBtn" class="bell" type="button" title="Komentar &amp; laporan" aria-label="Buka panel komentar dan laporan" aria-expanded="false" aria-controls="commentPanel">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         <span id="bellBadge" class="badge hidden">0</span>
       </button>
+      <span class="bell-label">Laporan</span>
     </div>
   </div>
+  <div class="tb-accent" aria-hidden="true"></div>
 </header>
 
 <!-- Panel komentar -->

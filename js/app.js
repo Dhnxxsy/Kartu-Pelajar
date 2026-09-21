@@ -395,10 +395,14 @@
   }
   function openPanel() {
     $('commentPanel').classList.add('open');
+    $('bellBtn').setAttribute('aria-expanded', 'true');
     $('markReadBtn').style.display = comments.length ? '' : 'none';
     renderPanel();
   }
-  function closePanel() { $('commentPanel').classList.remove('open'); }
+  function closePanel() {
+    $('commentPanel').classList.remove('open');
+    $('bellBtn').setAttribute('aria-expanded', 'false');
+  }
 
   /* ---------------- events ---------------- */
   searchInput.addEventListener('input', debounce(function () {
@@ -502,16 +506,28 @@
 
   /* ---------------- tombol kembali ke atas ---------------- */
   var toTop = $('toTop');
+  var topbarEl = $('topbar');
+  var progEl = $('tbProgress');
   var scrollTicking = false;
   window.addEventListener('scroll', function () {
     if (scrollTicking) return;
     scrollTicking = true;
     window.requestAnimationFrame(function () {
-      toTop.classList.toggle('hidden', window.pageYOffset < 480);
+      var y = window.pageYOffset;
+      toTop.classList.toggle('hidden', y < 480);
+      if (topbarEl) topbarEl.classList.toggle('scrolled', y > 10);
+      if (progEl) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        progEl.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+      }
       scrollTicking = false;
     });
   }, { passive: true });
   toTop.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var brandLink = document.querySelector('.brand-link');
+  if (brandLink) brandLink.addEventListener('click', function (e) {
+    if (window.pageYOffset > 0) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
   });
 })();
