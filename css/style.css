@@ -249,6 +249,28 @@ body{
 }
 .tile .cap b{font-size:13.5px;line-height:1.25;display:block}
 .tile .cap small{color:var(--muted);font-size:11.5px}
+.tile.tile-new{animation:fadeUp .38s var(--ease) both}
+
+/* ---------- load more ---------- */
+.load-more-wrap{display:flex;justify-content:center;margin:26px 0 4px}
+.load-more{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#fff;border:1.5px solid var(--line);color:var(--ink);
+  padding:12px 24px;border-radius:999px;font-size:14.5px;font-weight:700;
+  box-shadow:var(--shadow-sm);
+  transition:color .18s var(--ease),border-color .18s var(--ease),box-shadow .2s var(--ease),transform .15s var(--ease);
+}
+.load-more:hover{border-color:var(--brand);color:var(--brand);box-shadow:0 12px 26px rgba(59,75,216,.18);transform:translateY(-2px)}
+.load-more:active{transform:translateY(0) scale(.98)}
+.load-more .lm-count{
+  background:#eef1f9;color:var(--muted);border-radius:999px;
+  padding:2px 10px;font-size:12px;font-weight:700;
+  transition:background .18s var(--ease),color .18s var(--ease);
+}
+.load-more:hover .lm-count{background:rgba(59,75,216,.12);color:var(--brand)}
+.load-more .lm-ico{transition:transform .25s var(--ease)}
+.load-more:hover .lm-ico{transform:translateY(3px)}
+.load-more.loading{pointer-events:none;opacity:.65}
 
 /* ---------- skeleton loader ---------- */
 .skel-card{

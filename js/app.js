@@ -76,16 +76,20 @@
   }
 
   /* ---------------- render ---------------- */
+  var PAGE_SIZE = 12;
+  var shownCount = PAGE_SIZE;
+
   function render() {
     $('cntAll').textContent = students.length;
     ['MP1','MP2','AK','PBS','BD'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
     $('issueTotal').textContent = problems.length;
-    renderGrid();
+    renderGrid(true);
     renderIssues();
   }
 
-  function renderGrid() {
-    var list = students.filter(function (s) {
+  /* daftar siswa setelah difilter (jurusan + pencarian) */
+  function currentList() {
+    return students.filter(function (s) {
       if (activeJur !== 'all' && s.jurusan !== activeJur) return false;
       if (query) {
         var q = norm(query);
@@ -93,29 +97,75 @@
       }
       return true;
     });
+  }
 
-    resultCount.textContent = list.length === students.length
-      ? 'Menampilkan semua ' + students.length + ' kartu'
-      : 'Menampilkan ' + list.length + ' dari ' + students.length + ' kartu';
+  function tileHTML(s, i) {
+    var badge = verifiedMap[s.key] === true
+      ? '<span class="ver-badge" title="Kartu terverifikasi">' +
+        '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>'
+      : '';
+    return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0" style="animation-delay:' + ((i % 14) * 0.022) + 's">' +
+      '<div class="imgwrap">' + badge +
+      '<img loading="lazy" src="' + esc(imgUrl(s.img)) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
+      '<div class="cap"><div><b>' + esc(s.name) + '</b><small>' + esc(JUR_LABEL[s.jurusan] || s.jurusan) + '</small></div>' +
+      '</div></div>';
+  }
 
-    emptyState.classList.toggle('hidden', list.length !== 0);
-    grid.innerHTML = list.map(function (s) {
-      var badge = verifiedMap[s.key] === true
-        ? '<span class="ver-badge" title="Kartu terverifikasi">' +
-          '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>'
-        : '';
-      return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0">' +
-        '<div class="imgwrap">' + badge +
-        '<img loading="lazy" src="' + esc(imgUrl(s.img)) + '" alt="Kartu ' + esc(s.name) + '"></div>' +
-        '<div class="cap"><div><b>' + esc(s.name) + '</b><small>' + esc(JUR_LABEL[s.jurusan] || s.jurusan) + '</small></div>' +
-        '</div></div>';
-    }).join('');
-
-    grid.querySelectorAll('.tile').forEach(function (t, i) {
-      t.style.animationDelay = (i % 14) * 0.022 + 's';
+  function bindTiles(nodes) {
+    Array.prototype.forEach.call(nodes, function (t) {
       t.addEventListener('click', function () { openModal(t.dataset.key); });
       t.addEventListener('keydown', function (e) { if (e.key === 'Enter') openModal(t.dataset.key); });
     });
+  }
+
+  function updateResultCount(total, shown) {
+    resultCount.textContent = shown < total
+      ? 'Menampilkan ' + shown + ' dari ' + total + ' kartu'
+      : (total === students.length
+          ? 'Menampilkan semua ' + total + ' kartu'
+          : 'Menampilkan ' + total + ' kartu');
+  }
+
+  function updateLoadMore(total, shown) {
+    var wrap = $('loadMoreWrap');
+    if (!wrap) return;
+    if (total > shown) {
+      var left = total - shown;
+      $('loadMoreCount').textContent = left + ' kartu lagi';
+      $('loadMoreBtn').disabled = false;
+      wrap.classList.remove('hidden');
+    } else {
+      wrap.classList.add('hidden');
+    }
+  }
+
+  function renderGrid(resetPage) {
+    var list = currentList();
+    var total = list.length;
+    if (resetPage) shownCount = PAGE_SIZE;
+    if (shownCount > total) shownCount = total;
+    if (shownCount < 0) shownCount = 0;
+    var visible = list.slice(0, shownCount);
+
+    updateResultCount(total, visible.length);
+    emptyState.classList.toggle('hidden', total !== 0);
+    grid.innerHTML = visible.map(tileHTML).join('');
+    bindTiles(grid.querySelectorAll('.tile'));
+    updateLoadMore(total, visible.length);
+  }
+
+  function loadMoreTiles() {
+    var list = currentList();
+    var prev = shownCount;
+    shownCount = Math.min(shownCount + PAGE_SIZE, list.length);
+    if (shownCount === prev) { updateLoadMore(list.length, shownCount); return; }
+    var holder = document.createElement('div');
+    holder.innerHTML = list.slice(prev, shownCount).map(function (s, i) { return tileHTML(s, prev + i); }).join('');
+    var added = holder.querySelectorAll('.tile');
+    bindTiles(added);
+    Array.prototype.forEach.call(added, function (t) { grid.appendChild(t); });
+    updateResultCount(list.length, shownCount);
+    updateLoadMore(list.length, shownCount);
   }
 
   function renderIssues() {
@@ -421,6 +471,8 @@
     $('chips').querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('active', c === chip); });
     render();
   });
+  var loadMoreBtn = $('loadMoreBtn');
+  if (loadMoreBtn) loadMoreBtn.addEventListener('click', loadMoreTiles);
   $('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
   modalImg.addEventListener('click', function () { modalImg.classList.toggle('zoomed'); });
