@@ -411,6 +411,7 @@
     render();
   }, 130));
   $('clearSearch').addEventListener('click', function () { searchInput.value = ''; query = ''; this.classList.add('hidden'); render(); });
+  $('searchBtn').addEventListener('click', function () { searchInput.focus(); render(); });
   $('chips').addEventListener('click', function (e) {
     var chip = e.target.closest('.chip');
     if (!chip) return;
