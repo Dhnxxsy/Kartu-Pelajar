@@ -106,20 +106,7 @@ body{
   border:1px solid rgba(255,255,255,.24);padding:0 8px;border-radius:999px;
   line-height:1.7;font-weight:700;
 }
-.brand-badge{
-  display:none;align-items:center;gap:6px;margin-left:2px;
-  background:rgba(12,148,86,.95);color:#fff;font-size:11.5px;font-weight:700;
-  padding:4px 11px;border-radius:999px;white-space:nowrap;
-  box-shadow:0 4px 12px rgba(0,0,0,.28);
-}
-.brand-badge .ok-dot{
-  width:7px;height:7px;border-radius:50%;flex:none;
-  background:#86ffcf;box-shadow:0 0 8px #86ffcf;
-  animation:pulse-dot 2.2s ease-in-out infinite;
-}
-@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.45}}
 @media (min-width:900px){
-  .brand-badge{display:inline-flex}
   .brand-link:hover .brand-logo{transform:translateY(-1px)}
 }
 .tb-actions{display:flex;align-items:center;gap:10px}
@@ -154,19 +141,43 @@ body{
 .wrap{max-width:1120px;margin:0 auto;padding:26px 18px 60px}
 
 /* ---------- hero / search ---------- */
-.hero{text-align:center;margin:18px 0 22px;animation:fadeDown .5s var(--ease);position:relative;overflow:hidden}
+.hero{text-align:center;margin:26px 0 24px;animation:fadeDown .5s var(--ease);position:relative;overflow:hidden}
 .hero-glow{
-  position:absolute;inset:0 -24px;height:200px;pointer-events:none;
-  background:radial-gradient(55% 80% at 50% 0%, rgba(59,75,216,.13), transparent 72%);
+  position:absolute;inset:0 -24px;height:220px;pointer-events:none;
+  background:radial-gradient(55% 80% at 50% 0%, rgba(59,75,216,.14), transparent 72%);
   z-index:-1;
 }
-.hero h1{font-size:28px;letter-spacing:-.35px}
-.hero h1 .grad{
-  background:linear-gradient(100deg,var(--brand) 20%,#6d4be0 55%,var(--brand2) 90%);
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--line);
+  color:var(--brand);font-size:12px;font-weight:700;letter-spacing:.2px;
+  padding:6px 14px 6px 11px;border-radius:999px;
+  box-shadow:var(--shadow-sm);margin-bottom:16px;
+}
+.eyebrow-dot{
+  width:8px;height:8px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,var(--accent),#ff6f91);
+  box-shadow:0 0 0 3px rgba(255,176,32,.18);
+}
+.hero-title{
+  font-size:clamp(27px,5vw,40px);line-height:1.22;letter-spacing:-.55px;
+}
+.hero-title .grad-hl{
+  position:relative;display:inline-block;
+  background:linear-gradient(100deg,var(--brand) 15%,#6d4be0 55%,var(--brand2) 95%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.lead{color:var(--muted);margin:8px auto 0;max-width:640px;font-size:14.5px}
-.searchbox{position:relative;max-width:620px;margin:20px auto 0}
+.hl{
+  position:absolute;left:4%;right:4%;bottom:-9px;width:92%;height:16px;
+  overflow:visible;pointer-events:none;
+}
+.hl path{
+  stroke-dasharray:240;stroke-dashoffset:240;
+  animation:hlDraw 1.15s .45s var(--ease) forwards;
+}
+@keyframes hlDraw{to{stroke-dashoffset:0}}
+.lead{color:var(--muted);margin:16px auto 0;max-width:620px;font-size:15px;line-height:1.7}
+.searchbox{position:relative;max-width:620px;margin:22px auto 0}
 .searchbox .search-ico{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted)}
 #searchInput{
   width:100%;padding:15px 46px;border-radius:16px;border:1.5px solid var(--line);
@@ -563,7 +574,9 @@ body{
   .comment{padding:9px 11px;font-size:12.5px}
   .confirm-dialog{max-width:100%;width:calc(100vw - 32px);padding:20px 16px;border-radius:16px}
   .ver-txt small{font-size:11px}
-  .hero h1{font-size:23px}
+  .hero-title{font-size:clamp(24px,8vw,30px);letter-spacing:-.4px}
+  .hero-eyebrow{font-size:11px;padding:5px 12px 5px 9px;margin-bottom:13px}
+  .lead{font-size:14px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
   .foot{margin-top:54px;padding:24px 16px 30px}
 }
