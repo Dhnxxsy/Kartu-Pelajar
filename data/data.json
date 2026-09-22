@@ -839,5 +839,320 @@
     "jurusan": "BD",
     "key": "zacky-arsyad-BD",
     "img": "cards/BD/zacky-arsyad.jpg"
+  },
+  {
+    "name": "Ahmad Alvaro Farezi",
+    "nis": "12540",
+    "nisn": "0098518840",
+    "jurusan": "DKV",
+    "key": "ahmad-alvaro-farezi-DKV",
+    "img": "cards/DKV/ahmad-alvaro-farezi.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Ahmad Dzaky Ardyan",
+    "nis": "12541",
+    "nisn": "0107908467",
+    "jurusan": "DKV",
+    "key": "ahmad-dzaky-ardyan-DKV",
+    "img": "cards/DKV/ahmad-dzaky-ardyan.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Ahmad Fajri Ardiansyah",
+    "nis": "12542",
+    "nisn": "3102461623",
+    "jurusan": "DKV",
+    "key": "ahmad-fajri-ardiansyah-DKV",
+    "img": "cards/DKV/ahmad-fajri-ardiansyah.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Alan Bramantoro",
+    "nis": "12543",
+    "nisn": "0105508594",
+    "jurusan": "DKV",
+    "key": "alan-bramantoro-DKV",
+    "img": "cards/DKV/alan-bramantoro.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Alief Reifan Diawan",
+    "nis": "12544",
+    "nisn": "0109857855",
+    "jurusan": "DKV",
+    "key": "alief-reifan-diawan-DKV",
+    "img": "cards/DKV/alief-reifan-diawan.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Amelia Cahyanti",
+    "nis": "12545",
+    "nisn": "0116262214",
+    "jurusan": "DKV",
+    "key": "amelia-cahyanti-DKV",
+    "img": "cards/DKV/amelia-cahyanti.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Ar Raffy Maulana",
+    "nis": "12546",
+    "nisn": "3091879099",
+    "jurusan": "DKV",
+    "key": "ar-raffy-maulana-DKV",
+    "img": "cards/DKV/ar-raffy-maulana.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Arini Nur Zahira",
+    "nis": "12547",
+    "nisn": "0104298038",
+    "jurusan": "DKV",
+    "key": "arini-nur-zahira-DKV",
+    "img": "cards/DKV/arini-nur-zahira.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Fadzlan Tri Kurniawan",
+    "nis": "12548",
+    "nisn": "0102037455",
+    "jurusan": "DKV",
+    "key": "fadzlan-tri-kurniawan-DKV",
+    "img": "cards/DKV/fadzlan-tri-kurniawan.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Fahmi Alkhawariz Iskandar",
+    "nis": "12549",
+    "nisn": "3100685308",
+    "jurusan": "DKV",
+    "key": "fahmi-alkhawariz-iskandar-DKV",
+    "img": "cards/DKV/fahmi-alkhawariz-iskandar.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Haykal Hidayat",
+    "nis": "12550",
+    "nisn": "3108169684",
+    "jurusan": "DKV",
+    "key": "haykal-hidayat-DKV",
+    "img": "cards/DKV/haykal-hidayat.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Ibad Zufar Hanif",
+    "nis": "12551",
+    "nisn": "0109516534",
+    "jurusan": "DKV",
+    "key": "ibad-zufar-hanif-DKV",
+    "img": "cards/DKV/ibad-zufar-hanif.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Jilan Hazmi Syarip",
+    "nis": "12552",
+    "nisn": "3113759110",
+    "jurusan": "DKV",
+    "key": "jilan-hazmi-syarip-DKV",
+    "img": "cards/DKV/jilan-hazmi-syarip.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "M. Faiz Zulfikar",
+    "nis": "12553",
+    "nisn": "0104127282",
+    "jurusan": "DKV",
+    "key": "m-faiz-zulfikar-DKV",
+    "img": "cards/DKV/m-faiz-zulfikar.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Maelany Putri Pranata",
+    "nis": "12554",
+    "nisn": "0109162158",
+    "jurusan": "DKV",
+    "key": "maelany-putri-pranata-DKV",
+    "img": "cards/DKV/maelany-putri-pranata.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhamad Al Fathar",
+    "nis": "12555",
+    "nisn": "0095145210",
+    "jurusan": "DKV",
+    "key": "muhamad-al-fathar-DKV",
+    "img": "cards/DKV/muhamad-al-fathar.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Abdul Aziz Nugraha",
+    "nis": "12556",
+    "nisn": "0105652068",
+    "jurusan": "DKV",
+    "key": "muhammad-abdul-aziz-nugraha-DKV",
+    "img": "cards/DKV/muhammad-abdul-aziz-nugraha.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Arif Ar'Rasyid",
+    "nis": "12557",
+    "nisn": "3115662619",
+    "jurusan": "DKV",
+    "key": "muhammad-arif-ar-rasyid-DKV",
+    "img": "cards/DKV/muhammad-arif-ar-rasyid.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Azzam Al Ikrom",
+    "nis": "12558",
+    "nisn": "0102212897",
+    "jurusan": "DKV",
+    "key": "muhammad-azzam-al-ikrom-DKV",
+    "img": "cards/DKV/muhammad-azzam-al-ikrom.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Hapiz",
+    "nis": "12559",
+    "nisn": "0109045199",
+    "jurusan": "DKV",
+    "key": "muhammad-hapiz-DKV",
+    "img": "cards/DKV/muhammad-hapiz.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Hilmi Naazhim",
+    "nis": "12560",
+    "nisn": "0105324997",
+    "jurusan": "DKV",
+    "key": "muhammad-hilmi-naazhim-DKV",
+    "img": "cards/DKV/muhammad-hilmi-naazhim.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Madyan Adib",
+    "nis": "12561",
+    "nisn": "0108933835",
+    "jurusan": "DKV",
+    "key": "muhammad-madyan-adib-DKV",
+    "img": "cards/DKV/muhammad-madyan-adib.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Rezvan Ibrahim",
+    "nis": "12562",
+    "nisn": "0104867623",
+    "jurusan": "DKV",
+    "key": "muhammad-rezvan-ibrahim-DKV",
+    "img": "cards/DKV/muhammad-rezvan-ibrahim.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Rizqi Ramadhan",
+    "nis": "12563",
+    "nisn": "0106538626",
+    "jurusan": "DKV",
+    "key": "muhammad-rizqi-ramadhan-DKV",
+    "img": "cards/DKV/muhammad-rizqi-ramadhan.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Muhammad Syah Fathir",
+    "nis": "12564",
+    "nisn": "0111134376",
+    "jurusan": "DKV",
+    "key": "muhammad-syah-fathir-DKV",
+    "img": "cards/DKV/muhammad-syah-fathir.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Nabila Chyntia Darmawan",
+    "nis": "12565",
+    "nisn": "0103950868",
+    "jurusan": "DKV",
+    "key": "nabila-chyntia-darmawan-DKV",
+    "img": "cards/DKV/nabila-chyntia-darmawan.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Nadya Azmi Mauliza",
+    "nis": "12566",
+    "nisn": "3101614637",
+    "jurusan": "DKV",
+    "key": "nadya-azmi-mauliza-DKV",
+    "img": "cards/DKV/nadya-azmi-mauliza.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Raihan Rama Wijaya",
+    "nis": "12567",
+    "nisn": "3111041240",
+    "jurusan": "DKV",
+    "key": "raihan-rama-wijaya-DKV",
+    "img": "cards/DKV/raihan-rama-wijaya.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Rendra Guntia Novelino",
+    "nis": "12568",
+    "nisn": "0107736411",
+    "jurusan": "DKV",
+    "key": "rendra-guntia-novelino-DKV",
+    "img": "cards/DKV/rendra-guntia-novelino.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Reyhan Fabian",
+    "nis": "12693",
+    "nisn": "",
+    "jurusan": "DKV",
+    "key": "reyhan-fabian-DKV",
+    "img": "cards/DKV/reyhan-fabian.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Rizka Putri Zifara",
+    "nis": "12569",
+    "nisn": "0109966979",
+    "jurusan": "DKV",
+    "key": "rizka-putri-zifara-DKV",
+    "img": "cards/DKV/rizka-putri-zifara.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Said Arkaan Rafardhan",
+    "nis": "12570",
+    "nisn": "0109582926",
+    "jurusan": "DKV",
+    "key": "said-arkaan-rafardhan-DKV",
+    "img": "cards/DKV/said-arkaan-rafardhan.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Usep Taupik Kamil",
+    "nis": "12572",
+    "nisn": "3107094651",
+    "jurusan": "DKV",
+    "key": "usep-taupik-kamil-DKV",
+    "img": "cards/DKV/usep-taupik-kamil.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Vathaan Aghasatria Suhandinata",
+    "nis": "12573",
+    "nisn": "0102970102",
+    "jurusan": "DKV",
+    "key": "vathaan-aghasatria-suhandinata-DKV",
+    "img": "cards/DKV/vathaan-aghasatria-suhandinata.jpg",
+    "noThumb": true
+  },
+  {
+    "name": "Zulfansyah Reza",
+    "nis": "12574",
+    "nisn": "0105171033",
+    "jurusan": "DKV",
+    "key": "zulfansyah-reza-DKV",
+    "img": "cards/DKV/zulfansyah-reza.jpg",
+    "noThumb": true
   }
 ]

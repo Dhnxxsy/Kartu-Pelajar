@@ -14,13 +14,13 @@
   var query = '';
   var currentKey = null;
   var lastSeenKey = 'kp_lastseen';
-  var totalPerJur = { MP1: 0, MP2: 0, AK: 0, PBS: 0, BD: 0 };
+  var totalPerJur = { MP1: 0, MP2: 0, AK: 0, PBS: 0, DKV: 0, BD: 0 };
 
   var $ = function (id) { return document.getElementById(id); };
   var grid = $('grid'), searchInput = $('searchInput'), emptyState = $('emptyState'),
       resultCount = $('resultCount'), modal = $('modal'), toast = $('toast'), modalImg = $('modalImg');
 
-  var JUR_LABEL = { MP1: 'Manajemen Perkantoran 1', MP2: 'Manajemen Perkantoran 2', AK: 'Akuntansi', PBS: 'Perbankan Syariah', BD: 'Bisnis Digital' };
+  var JUR_LABEL = { MP1: 'Manajemen Perkantoran 1', MP2: 'Manajemen Perkantoran 2', AK: 'Akuntansi', PBS: 'Perbankan Syariah', DKV: 'Desain Komunikasi Visual', BD: 'Bisnis Digital' };
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -81,7 +81,7 @@
 
   function render() {
     $('cntAll').textContent = students.length;
-    ['MP1','MP2','AK','PBS','BD'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
+    ['MP1','MP2','AK','PBS','DKV','BD'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
     $('issueTotal').textContent = problems.length;
     renderGrid(true);
     renderIssues();
@@ -101,11 +101,14 @@
 
   function tileImgHTML(s, i) {
     var ver = window.VERSION ? '?v=' + window.VERSION : '';
-    var thumb = 'cards/thumb/' + s.key + '.jpg' + ver;
-    var webp = 'cards/thumb/' + s.key + '.webp' + ver;
     var attrs = i < 4
       ? 'loading="eager" fetchpriority="high" decoding="async"'
       : 'loading="lazy" decoding="async"';
+    if (s.noThumb) {
+      return '<img ' + attrs + ' src="' + esc(s.img + ver) + '" alt="Kartu ' + esc(s.name) + '">';
+    }
+    var thumb = 'cards/thumb/' + s.key + '.jpg' + ver;
+    var webp = 'cards/thumb/' + s.key + '.webp' + ver;
     return '<picture>' +
       '<source type="image/webp" srcset="' + esc(webp) + '">' +
       '<img ' + attrs + ' src="' + esc(thumb) + '" alt="Kartu ' + esc(s.name) + '">' +
