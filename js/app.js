@@ -78,6 +78,7 @@
   /* ---------------- render ---------------- */
   var PAGE_SIZE = 12;
   var shownCount = PAGE_SIZE;
+  var userRendered = false;
 
   function render() {
     $('cntAll').textContent = students.length;
@@ -475,15 +476,17 @@
   searchInput.addEventListener('input', debounce(function () {
     query = searchInput.value.trim();
     $('clearSearch').classList.toggle('hidden', !query);
+    userRendered = true;
     render();
   }, 130));
-  $('clearSearch').addEventListener('click', function () { searchInput.value = ''; query = ''; this.classList.add('hidden'); render(); });
-  $('searchBtn').addEventListener('click', function () { searchInput.focus(); render(); });
+  $('clearSearch').addEventListener('click', function () { searchInput.value = ''; query = ''; this.classList.add('hidden'); userRendered = true; render(); });
+  $('searchBtn').addEventListener('click', function () { searchInput.focus(); userRendered = true; render(); });
   $('chips').addEventListener('click', function (e) {
     var chip = e.target.closest('.chip');
     if (!chip) return;
     activeJur = chip.dataset.jur;
     $('chips').querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('active', c === chip); });
+    userRendered = true;
     render();
   });
   var loadMoreBtn = $('loadMoreBtn');
@@ -555,7 +558,7 @@
       return Promise.all([listComments(), listVerified()]).then(function (arr) {
         comments = arr[0];
         verifiedMap = arr[1];
-        render();
+        if (userRendered) { renderGrid(); } else { render(); }
         renderPanel();
       });
     }).catch(function () {
