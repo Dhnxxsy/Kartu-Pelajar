@@ -235,13 +235,20 @@ body{
 .tile:active{transform:scale(.985)}
 .tile .imgwrap{aspect-ratio:1016/661;background:#e8ebf5;overflow:hidden;position:relative}
 .tile .imgwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,28,70,.07));pointer-events:none}
-.ver-badge{
-  position:absolute;top:8px;right:8px;z-index:2;
-  width:26px;height:26px;border-radius:50%;
-  background:var(--ok);color:#fff;display:grid;place-items:center;
-  box-shadow:0 3px 10px rgba(13,154,99,.5);
-  animation:pop .25s var(--ease);
+@keyframes stampIn{from{opacity:0;transform:rotate(-16deg) scale(.6)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+.ver-stamp{
+  position:absolute;z-index:3;left:-4px;bottom:12px;
+  transform:rotate(-8deg);
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(17,150,97,.88);color:#fff;
+  font-weight:800;font-size:11px;letter-spacing:1.8px;
+  text-transform:uppercase;
+  padding:6px 13px 6px 9px;border-radius:4px;
+  border:2px dashed rgba(255,255,255,.55);
+  box-shadow:0 3px 12px rgba(13,154,99,.45);
+  animation:stampIn .3s var(--ease) both;
 }
+.ver-stamp svg{width:13px;height:13px;flex:none}
 .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease)}
 .tile:hover img{transform:scale(1.04)}
 .tile .cap{
@@ -365,7 +372,7 @@ body{
 }
 .modal-close:hover{background:#0b1230}
 .modal-close:active{transform:scale(.92)}
-.shot{flex:0 0 50%;min-width:0}
+.shot{flex:0 0 50%;min-width:0;position:relative}
 .shot img{width:100%;border-radius:12px;box-shadow:var(--shadow);display:block;animation:imgIn .35s .05s var(--ease) both;cursor:zoom-in}
 .zoom-hint{display:none}
 #modalImg.zoomed{
@@ -602,6 +609,8 @@ body{
   .comment{padding:9px 11px;font-size:12.5px}
   .confirm-dialog{max-width:100%;width:calc(100vw - 32px);padding:20px 16px;border-radius:16px}
   .ver-txt small{font-size:11px}
+  .ver-stamp{font-size:9.5px;letter-spacing:1.2px;padding:4px 10px 4px 7px;gap:4px;bottom:8px;left:-5px}
+  .ver-stamp svg{width:11px;height:11px}
   .hero-title{font-size:clamp(24px,8vw,30px);letter-spacing:-.4px}
   .lead{font-size:14px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}

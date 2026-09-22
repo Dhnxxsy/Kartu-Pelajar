@@ -125,8 +125,9 @@
 
   function tileHTML(s, i) {
     var badge = verifiedMap[s.key] === true
-      ? '<span class="ver-badge" title="Kartu terverifikasi">' +
-        '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>'
+      ? '<span class="ver-stamp">' +
+        '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
+        'TERVERIFIKASI</span>'
       : '';
     return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0" style="animation-delay:' + ((i % 14) * 0.022) + 's">' +
       '<div class="imgwrap">' + badge + tileImgHTML(s, i) + '</div>' +
@@ -226,6 +227,7 @@
     $('mNis').textContent = st.nis || '—';
     $('mNisn').textContent = st.nisn || '—';
     $('mJur').textContent = st.jurusan + ' · ' + (JUR_LABEL[st.jurusan] || st.jurusan);
+    $('modalStamp').classList.toggle('hidden', verifiedMap[st.key] !== true);
 
     $('problemBox').classList.toggle('hidden', !prob);
     if (prob) {
@@ -277,6 +279,8 @@
         '<button id="verGo" type="button" class="btn small primary">Verifikasi</button></div>';
     }
     box.classList.remove('hidden');
+    var ms = $('modalStamp');
+    if (ms) ms.classList.toggle('hidden', verifiedMap[st.key] !== true);
     var go = $('verGo'), cancel = $('verCancel');
     if (!API) {
       var note = document.createElement('div');
