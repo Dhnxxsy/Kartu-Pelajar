@@ -17,8 +17,11 @@ Hasil akhir yang disetujui user = seperti kartu acuan `cards/MP2/ahmad-luthfi.jp
 - `x_label = 278`, `x_colon = 400`, `x_value = 415`
 - `y_start = 302`, `line_h = 35`
 - Field utama (Nama, NIS, NISN, TTL, Jurusan + label "Alamat"): **27pt**.
-- Lanjutan alamat: **22pt**, dibungkus max 3 baris dengan syarat
-  `x_value + lebar_teks <= 747` (cek via `font.getbbox`).
+- Lanjutan alamat: **27pt sama rata** (revisi: 22pt terlihat kecil & tidak sejajar),
+  dibungkus max 3 baris dengan syarat `x_value + lebar_teks <= 747`
+  (cek via `font.getbbox`; semua alamat sejauh ini muat: max 323px).
+- Zona `x535-580, y291-299` (di atas Nama) harus bersih putih — di master ada
+  sisa speck gelap, wajib diputihkan per kartu.
 - Contoh split alamat:
   - `Jl. Pejaten Timur, No. 24A,` / `RT. 010/007, Ps. Minggu,` / `Jakarta Selatan`
   - `Jl. Guru Muhyin, No. 99,` / `RT. 004/002, Jagakarsa,` / `Jakarta Selatan`
