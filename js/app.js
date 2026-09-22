@@ -281,17 +281,15 @@
     box.classList.remove('hidden');
     var ms = $('modalStamp');
     if (ms) ms.classList.toggle('hidden', verifiedMap[st.key] !== true);
-    var go = $('verGo'), cancel = $('verCancel');
     if (!API) {
       var note = document.createElement('div');
       note.className = 'ver-note';
       note.textContent = 'Fitur verifikasi aktif setelah sekolah menghubungkan penyimpanan data (Google Sheets).';
       box.appendChild(note);
-      if (go) go.disabled = true;
-      if (cancel) cancel.disabled = true;
+      var go0 = $('verGo'), cancel0 = $('verCancel');
+      if (go0) go0.disabled = true;
+      if (cancel0) cancel0.disabled = true;
     }
-    if (go) go.addEventListener('click', function () { openConfirm('verify'); });
-    if (cancel) cancel.addEventListener('click', function () { openConfirm('cancel'); });
   }
 
   /* ---------------- dialog konfirmasi verifikasi ---------------- */
@@ -342,6 +340,7 @@
     postComment(currentKey, isVer ? 'Verifikasi' : 'Batal Verifikasi',
       isVer ? 'Murid memverifikasi kartu — data sudah benar.' : 'Murid membatalkan verifikasi kartu.', '')
       .then(function () {
+        verifiedMap[currentKey] = isVer;
         closeConfirm();
         showToast(isVer ? 'Kartu berhasil diverifikasi ✓' : 'Verifikasi dibatalkan.', 'ok');
         try {
@@ -521,9 +520,16 @@
   }
   function postComment(key, type, msg, author) {
     var now = Date.now();
-    var dup = localRecords.some(function (r) {
-      return r.key === key && r.type === type && r.msg === msg && now - timeMs(r.date) < 4000;
-    });
+    /* blokir double-click: hanya jika baris TERAKHIR untuk kartu ini sama persis
+       (tipe & isi sama) dan terjadi dalam 1,5 detik. Toggle cepat (verifikasi ->
+       batal -> verifikasi) tetap tercatat agar sheet ikut konsisten. */
+    var dup = false;
+    for (var j = localRecords.length - 1; j >= 0; j--) {
+      if (localRecords[j].key === key) {
+        dup = localRecords[j].type === type && localRecords[j].msg === msg && now - timeMs(localRecords[j].date) < 1500;
+        break;
+      }
+    }
     if (!dup) {
       var rec = { key: key, type: type, msg: msg, author: author || '', date: now };
       localRecords.push(rec);
@@ -606,6 +612,11 @@
   $('confirm').addEventListener('click', function (e) { if (e.target === $('confirm')) closeConfirm(); });
   $('cfCancel').addEventListener('click', closeConfirm);
   $('cfOk').addEventListener('click', postVerification);
+  $('verBox').addEventListener('click', function (e) {
+    var t = e.target && e.target.closest ? e.target.closest('#verGo, #verCancel') : null;
+    if (!t || t.disabled) return;
+    openConfirm(t.id === 'verGo' ? 'verify' : 'cancel');
+  });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       if (!$('confirm').classList.contains('hidden')) { closeConfirm(); return; }
