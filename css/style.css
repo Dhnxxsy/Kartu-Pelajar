@@ -235,10 +235,9 @@ body{
 .tile:active{transform:scale(.985)}
 .tile .imgwrap{aspect-ratio:1016/661;background:#e8ebf5;overflow:hidden;position:relative}
 .tile .imgwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,28,70,.07));pointer-events:none}
-@keyframes stampIn{from{opacity:0;transform:rotate(-16deg) scale(.6)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+@keyframes stampIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
 .ver-stamp{
   position:absolute;z-index:3;left:-4px;bottom:12px;
-  transform:rotate(-8deg);
   display:inline-flex;align-items:center;gap:6px;
   background:rgba(17,150,97,.88);color:#fff;
   font-weight:800;font-size:11px;letter-spacing:1.8px;
