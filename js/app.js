@@ -329,8 +329,14 @@
     }
     var isVer = confirmMode === 'verify';
     var btn = $('cfOk');
+    var warn = $('confirmWarn');
+    var savedWarn = warn ? warn.textContent : '';
     btn.disabled = true;
     btn.textContent = 'Mengirim…';
+    if (warn) {
+      warn.className = 'confirm-warn' + (isVer ? '' : ' cancel');
+      warn.textContent = 'Sedang menyimpan ke Google Sheets… ini bisa memakan beberapa detik, mohon tunggu jangan tutup dialognya.';
+    }
     postComment(currentKey, isVer ? 'Verifikasi' : 'Batal Verifikasi',
       isVer ? 'Murid memverifikasi kartu — data sudah benar.' : 'Murid membatalkan verifikasi kartu.', '')
       .then(function () {
@@ -341,6 +347,7 @@
         showToast(isVer ? 'Kartu berhasil diverifikasi ✓' : 'Verifikasi dibatalkan.', 'ok');
       })
       .catch(function (err) {
+        if (warn && savedWarn) warn.textContent = savedWarn;
         showToast('Gagal menyimpan verifikasi: ' + err.message + '. Coba lagi.', 'err');
         btn.disabled = false;
         btn.textContent = isVer ? 'Ya, data sudah benar' : 'Ya, batalkan';
@@ -376,11 +383,28 @@
   }
 
   /* ---------------- comments (Google Apps Script + Sheets) ---------------- */
+  /* fetch dengan timeout — Google Apps Script dapat sangat lambat atau menggantung */
+  function fetchT(url, opts, ms) {
+    var ctrl = 'AbortController' in window ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, ms || 30000) : null;
+    var o = opts || {};
+    if (ctrl) o = Object.assign({}, o, { signal: ctrl.signal });
+    return fetch(url, o).then(function (r) {
+      if (timer) clearTimeout(timer);
+      return r;
+    }, function (err) {
+      if (timer) clearTimeout(timer);
+      if (ctrl && ctrl.signal.aborted) { var e = new Error('Waktu habis — jaringan/Google Sheets lambat, coba lagi.'); e.name = 'TimeoutError'; throw e; }
+      throw err;
+    });
+  }
+  var recordsCache = null;
   function fetchRecords() {
+    if (recordsCache) return recordsCache;
     if (!API) return Promise.resolve([]);
     var byKey = {};
     students.forEach(function (s) { byKey[s.key] = s.name; });
-    return fetch(API + (API.indexOf('?') > -1 ? '&' : '?') + 'action=list')
+    recordsCache = fetchT(API + (API.indexOf('?') > -1 ? '&' : '?') + 'action=list', null, 30000)
       .then(function (r) { return r.json(); })
       .then(function (items) {
         return (items || []).filter(function (c) { return c && c.key && byKey[c.key]; }).map(function (c) {
@@ -394,7 +418,8 @@
           };
         });
       })
-      .catch(function () { return []; });
+      .catch(function () { recordsCache = null; return []; });
+    return recordsCache;
   }
   var VER_TYPES = { 'Verifikasi': true, 'Batal Verifikasi': false };
   function listComments() {
@@ -415,14 +440,15 @@
   function postComment(key, type, msg, author) {
     var st = null, i;
     for (i = 0; i < students.length; i++) if (students[i].key === key) { st = students[i]; break; }
-    return fetch(API, {
+    return fetchT(API, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ key: key, type: type, msg: msg, name: author, nama: st ? st.name : '' })
-    }).then(function (r) {
+    }, 60000).then(function (r) {
       return r.json();
     }).then(function (j) {
       if (!j || !j.ok) throw new Error('respon tidak dikenali');
+      recordsCache = null;
       return j;
     });
   }
@@ -520,7 +546,7 @@
     var btn = $('fSend');
     btn.disabled = true;
     $('fStatus').className = 'status';
-    $('fStatus').textContent = 'Mengirim…';
+    $('fStatus').textContent = 'Mengirim… (bisa beberapa detik)';
     postComment(currentKey, type, msg, author).then(function () {
       $('fStatus').className = 'status ok';
       $('fStatus').textContent = 'Terima kasih! Laporan kamu sudah terkirim.';
