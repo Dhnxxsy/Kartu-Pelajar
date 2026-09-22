@@ -343,11 +343,13 @@
       isVer ? 'Murid memverifikasi kartu — data sudah benar.' : 'Murid membatalkan verifikasi kartu.', '')
       .then(function () {
         closeConfirm();
-        renderVerBox();
-        renderGrid();
-        renderCommentList(currentKey);
-        renderPanel();
         showToast(isVer ? 'Kartu berhasil diverifikasi ✓' : 'Verifikasi dibatalkan.', 'ok');
+        try {
+          renderVerBox();
+          renderGrid();
+          renderCommentList(currentKey);
+          renderPanel();
+        } catch (err) {}
       });
   }
 
@@ -415,7 +417,7 @@
           };
         });
       })
-      .catch(function () { recordsCache = null; return []; });
+      .catch(function () { recordsCache = null; return null; });
     return recordsCache;
   }
   /* ---------------- penyimpanan lokal (instan) + sinkron latar belakang ke Sheets ---------------- */
@@ -433,11 +435,7 @@
     var d = typeof v === 'number' ? new Date(v) : new Date(v);
     return isNaN(d.getTime()) ? 0 : d.getTime();
   }
-  function dtKey(v) {
-    var d = typeof v === 'number' ? new Date(v) : new Date(v);
-    return isNaN(d.getTime()) ? '0000-00-00' : d.toISOString().slice(0, 10);
-  }
-  function fpOf(r) { return (r.key || '') + '|' + (r.type || '') + '|' + (r.msg || '') + '|' + (r.author || '') + '|' + dtKey(r.date); }
+  function fpOf(r) { return (r.key || '') + '|' + (r.type || '') + '|' + (r.msg || '') + '|' + (r.author || ''); }
   function rebuildState() {
     var seen = {};
     var all = [];
@@ -457,7 +455,7 @@
     });
     verifiedMap = v;
   }
-  function flushPending() {
+  function flushPending(tries) {
     if (!API || flushing || !pendingSync.length) return;
     flushing = true;
     var rec = pendingSync[0];
@@ -477,17 +475,43 @@
         flushPending();
       })
       .catch(function () {
+        /* Mungkin sudah SAMPAI di sheet tapi responnya hilang/lambat.
+           Cek dulu ke sheet — kalau sudah ada, anggap berhasil, JANGAN
+           kirim ulang (menghindari baris duplikat di Google Sheets). */
         flushing = false;
-        if (!syncFailedToast) {
-          syncFailedToast = true;
-          showToast('Tersimpan di perangkat. Sinkronisasi ke admin belum berhasil — akan dicoba lagi otomatis.', 'err');
-        }
+        recordsCache = null;
+        fetchRecords().then(function (rs) {
+          var landed = false;
+          if (rs) {
+            var fp = fpOf(rec);
+            rs.forEach(function (x) { if (fpOf(x) === fp) landed = true; });
+          }
+          if (landed) {
+            if (pendingSync[0] === rec) {
+              pendingSync.shift();
+              saveLS(LS_PEND, pendingSync);
+            }
+            if (currentKey) { renderVerBox(); renderCommentList(currentKey); }
+            return;
+          }
+          if (!syncFailedToast) {
+            syncFailedToast = true;
+            showToast('Tersimpan di perangkat. Sinkronisasi ke admin belum berhasil — akan dicoba lagi otomatis.', 'err');
+          }
+          var t = tries || 0;
+          if (t < 4) setTimeout(function () { flushPending(t + 1); }, Math.min(6000 * Math.pow(2, t), 60000));
+        });
       });
   }
-  function syncSheet() {
+  function syncSheet(tries) {
     if (!API) return;
     flushPending();
     fetchRecords().then(function (rs) {
+      if (rs === null) {
+        var t = tries || 0;
+        if (t < 3) { setTimeout(function () { syncSheet(t + 1); }, 12000); return; }
+        return;
+      }
       sheetRecords = rs;
       rebuildState();
       if (userRendered) { renderGrid(); } else { render(); }
