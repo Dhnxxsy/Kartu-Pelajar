@@ -22,6 +22,10 @@ Hasil akhir yang disetujui user = seperti kartu acuan `cards/MP2/ahmad-luthfi.jp
   (cek via `font.getbbox`; semua alamat sejauh ini muat: max 323px).
 - Zona `x535-580, y291-299` (di atas Nama) harus bersih putih — di master ada
   sisa speck gelap, wajib diputihkan per kartu.
+- Clear-rect untuk ganti teks value MAKSIMAL sampai `x736` — tinta stempel
+  sekolah mulai `x737` (`y547-585`); pernah kepotong sampai `x752` dan
+  menimbulkan blok putih menabrak stempel.
+- Kolom value: `x415` (ink mulai ~416, sejajar semua baris).
 - Contoh split alamat:
   - `Jl. Pejaten Timur, No. 24A,` / `RT. 010/007, Ps. Minggu,` / `Jakarta Selatan`
   - `Jl. Guru Muhyin, No. 99,` / `RT. 004/002, Jagakarsa,` / `Jakarta Selatan`
