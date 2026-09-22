@@ -9,6 +9,13 @@
   var problems = [];
   var comments = [];
   var verifiedMap = {};
+  var localRecords = [];
+  var pendingSync = [];
+  var sheetRecords = [];
+  var flushing = false;
+  var syncFailedToast = false;
+  var LS_REC = 'kartu_local_records_v1';
+  var LS_PEND = 'kartu_pending_sync_v1';
   var confirmMode = 'verify';
   var activeJur = 'all';
   var query = '';
@@ -328,29 +335,15 @@
       return;
     }
     var isVer = confirmMode === 'verify';
-    var btn = $('cfOk');
-    var warn = $('confirmWarn');
-    var savedWarn = warn ? warn.textContent : '';
-    btn.disabled = true;
-    btn.textContent = 'Mengirim…';
-    if (warn) {
-      warn.className = 'confirm-warn' + (isVer ? '' : ' cancel');
-      warn.textContent = 'Sedang menyimpan ke Google Sheets… ini bisa memakan beberapa detik, mohon tunggu jangan tutup dialognya.';
-    }
     postComment(currentKey, isVer ? 'Verifikasi' : 'Batal Verifikasi',
       isVer ? 'Murid memverifikasi kartu — data sudah benar.' : 'Murid membatalkan verifikasi kartu.', '')
       .then(function () {
-        verifiedMap[currentKey] = isVer;
         closeConfirm();
         renderVerBox();
         renderGrid();
+        renderCommentList(currentKey);
+        renderPanel();
         showToast(isVer ? 'Kartu berhasil diverifikasi ✓' : 'Verifikasi dibatalkan.', 'ok');
-      })
-      .catch(function (err) {
-        if (warn && savedWarn) warn.textContent = savedWarn;
-        showToast('Gagal menyimpan verifikasi: ' + err.message + '. Coba lagi.', 'err');
-        btn.disabled = false;
-        btn.textContent = isVer ? 'Ya, data sudah benar' : 'Ya, batalkan';
       });
   }
 
@@ -421,36 +414,98 @@
       .catch(function () { recordsCache = null; return []; });
     return recordsCache;
   }
-  var VER_TYPES = { 'Verifikasi': true, 'Batal Verifikasi': false };
-  function listComments() {
-    return fetchRecords().then(function (rs) {
-      return rs.filter(function (c) { return !(c.type in VER_TYPES); });
-    });
+  /* ---------------- penyimpanan lokal (instan) + sinkron latar belakang ke Sheets ---------------- */
+  function saveLS(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+  function loadLS(key, dflt) { try { return JSON.parse(localStorage.getItem(key)) || dflt; } catch (e) { return dflt; } }
+  function loadLocal() {
+    localRecords = loadLS(LS_REC, []);
+    pendingSync = loadLS(LS_PEND, []);
   }
-  /* status verifikasi = catatan terbaru per siswa (list dikirim terbalik, item-0 = terbaru) */
-  function listVerified() {
-    return fetchRecords().then(function (rs) {
-      var v = {};
-      rs.forEach(function (c) {
-        if (c.type in VER_TYPES && !(c.key in v)) v[c.key] = VER_TYPES[c.type];
+  function nameByKey(key) {
+    for (var i = 0; i < students.length; i++) if (students[i].key === key) return students[i].name;
+    return '';
+  }
+  function timeMs(v) {
+    var d = typeof v === 'number' ? new Date(v) : new Date(v);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }
+  function dtKey(v) {
+    var d = typeof v === 'number' ? new Date(v) : new Date(v);
+    return isNaN(d.getTime()) ? '0000-00-00' : d.toISOString().slice(0, 10);
+  }
+  function fpOf(r) { return (r.key || '') + '|' + (r.type || '') + '|' + (r.msg || '') + '|' + (r.author || '') + '|' + dtKey(r.date); }
+  function rebuildState() {
+    var seen = {};
+    var all = [];
+    function add(c) {
+      var fp = fpOf(c);
+      if (seen[fp]) return;
+      seen[fp] = 1;
+      all.push({ key: c.key, name: c.name || nameByKey(c.key), type: c.type, msg: c.msg, author: c.author, date: c.date });
+    }
+    localRecords.forEach(add);
+    sheetRecords.forEach(add);
+    all.sort(function (a, b) { return timeMs(b.date) - timeMs(a.date); });
+    comments = all;
+    var v = {};
+    all.forEach(function (c) {
+      if ((c.type === 'Verifikasi' || c.type === 'Batal Verifikasi') && !(c.key in v)) v[c.key] = c.type === 'Verifikasi';
+    });
+    verifiedMap = v;
+  }
+  function flushPending() {
+    if (!API || flushing || !pendingSync.length) return;
+    flushing = true;
+    var rec = pendingSync[0];
+    var st = null;
+    for (var i = 0; i < students.length; i++) if (students[i].key === rec.key) { st = students[i]; break; }
+    fetchT(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ key: rec.key, type: rec.type, msg: rec.msg, name: rec.author, nama: st ? st.name : '' })
+    }, 60000).then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j || !j.ok) throw new Error('respon tidak dikenali');
+        recordsCache = null;
+        pendingSync.shift();
+        saveLS(LS_PEND, pendingSync);
+        flushing = false;
+        flushPending();
+      })
+      .catch(function () {
+        flushing = false;
+        if (!syncFailedToast) {
+          syncFailedToast = true;
+          showToast('Tersimpan di perangkat. Sinkronisasi ke admin belum berhasil — akan dicoba lagi otomatis.', 'err');
+        }
       });
-      return v;
+  }
+  function syncSheet() {
+    if (!API) return;
+    flushPending();
+    fetchRecords().then(function (rs) {
+      sheetRecords = rs;
+      rebuildState();
+      if (userRendered) { renderGrid(); } else { render(); }
+      renderPanel();
+      if (currentKey) { renderCommentList(currentKey); renderVerBox(); }
     });
   }
   function postComment(key, type, msg, author) {
-    var st = null, i;
-    for (i = 0; i < students.length; i++) if (students[i].key === key) { st = students[i]; break; }
-    return fetchT(API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ key: key, type: type, msg: msg, name: author, nama: st ? st.name : '' })
-    }, 60000).then(function (r) {
-      return r.json();
-    }).then(function (j) {
-      if (!j || !j.ok) throw new Error('respon tidak dikenali');
-      recordsCache = null;
-      return j;
+    var now = Date.now();
+    var dup = localRecords.some(function (r) {
+      return r.key === key && r.type === type && r.msg === msg && now - timeMs(r.date) < 4000;
     });
+    if (!dup) {
+      var rec = { key: key, type: type, msg: msg, author: author || '', date: now };
+      localRecords.push(rec);
+      pendingSync.push(rec);
+      saveLS(LS_REC, localRecords.slice(-500));
+      saveLS(LS_PEND, pendingSync);
+      rebuildState();
+      flushPending();
+    }
+    return Promise.resolve();
   }
 
   /* ---------------- notification panel ---------------- */
@@ -545,23 +600,16 @@
     }
     var btn = $('fSend');
     btn.disabled = true;
-    $('fStatus').className = 'status';
-    $('fStatus').textContent = 'Mengirim… (bisa beberapa detik)';
+    $('fStatus').className = 'status ok';
+    $('fStatus').textContent = 'Tersimpan! Laporan dicatat dan dikirim ke admin secara otomatis.';
     postComment(currentKey, type, msg, author).then(function () {
-      $('fStatus').className = 'status ok';
       $('fStatus').textContent = 'Terima kasih! Laporan kamu sudah terkirim.';
       $('fMsg').value = '';
-      return Promise.all([listComments(), listVerified()]).then(function (arr) {
-        comments = arr[0];
-        verifiedMap = arr[1];
-        renderCommentList(currentKey);
-        renderPanel();
-        renderGrid();
-      });
-    }).catch(function (err) {
-      $('fStatus').className = 'status err';
-      $('fStatus').textContent = 'Gagal mengirim: ' + err.message + '. Coba lagi, atau hubungi admin sekolah.';
-    }).finally(function () { btn.disabled = false; });
+      renderCommentList(currentKey);
+      renderPanel();
+      renderGrid();
+      btn.disabled = false;
+    });
   });
 
   document.querySelectorAll('.sec-head').forEach(function (head) {
@@ -581,12 +629,11 @@
   /* ---------------- init ---------------- */
   function boot() {
     loadData().then(function () {
-      return Promise.all([listComments(), listVerified()]).then(function (arr) {
-        comments = arr[0];
-        verifiedMap = arr[1];
-        if (userRendered) { renderGrid(); } else { render(); }
-        renderPanel();
-      });
+      loadLocal();
+      rebuildState();
+      render();
+      renderPanel();
+      syncSheet();
     }).catch(function () {
       grid.innerHTML =
         '<div class="es-card es-error">' +
