@@ -26,6 +26,9 @@ Hasil akhir yang disetujui user = seperti kartu acuan `cards/MP2/ahmad-luthfi.jp
   sekolah mulai `x737` (`y547-585`); pernah kepotong sampai `x752` dan
   menimbulkan blok putih menabrak stempel.
 - Kolom value: `x415` (ink mulai ~416, sejajar semua baris).
+- Start-baris value WAJIB samakan dengan start-baris label asli kartu tsb
+  (ukur bbox ink label dulu; cth Fikri: label `y481` -> value `y474/512/550`,
+  bukan asal `+7`). Patokannya hubungan label-value baris TTL desainer.
 - Contoh split alamat:
   - `Jl. Pejaten Timur, No. 24A,` / `RT. 010/007, Ps. Minggu,` / `Jakarta Selatan`
   - `Jl. Guru Muhyin, No. 99,` / `RT. 004/002, Jagakarsa,` / `Jakarta Selatan`
