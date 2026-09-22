@@ -55,15 +55,6 @@
   },
   {
     "no": 7,
-    "name": "Davin Putra Indata",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "davin-putra-indata-MP2",
-    "extra": ""
-  },
-  {
-    "no": 8,
     "name": "Salsabila Atasya Ulfah",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
@@ -72,7 +63,7 @@
     "extra": ""
   },
   {
-    "no": 9,
+    "no": 8,
     "name": "Sarifah Amani",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
