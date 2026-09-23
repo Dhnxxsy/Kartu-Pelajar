@@ -849,6 +849,14 @@
     "img": "cards/BD/zacky-arsyad.jpg"
   },
   {
+    "name": "Nova Olivia",
+    "nis": "12682",
+    "nisn": "0097693949",
+    "jurusan": "BD",
+    "key": "nova-olivia-BD",
+    "img": "cards/BD/nova-olivia.jpg"
+  },
+  {
     "name": "Ahmad Alvaro Farezi",
     "nis": "12540",
     "nisn": "0098518840",
