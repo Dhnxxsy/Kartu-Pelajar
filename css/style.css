@@ -350,6 +350,58 @@ body{
 .issue-body .extra{background:#fdf1e4;border-radius:10px;padding:10px 12px;font-size:13px;color:#8a4d10;margin-top:8px}
 .issue-body .foot-actions{margin-top:12px}
 
+/* ---------- status verifikasi murid ---------- */
+.ok-ico{color:var(--ok);display:grid;place-items:center;flex:none}
+.verif{margin-top:56px}
+.vs-summary{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:16px;box-shadow:0 6px 18px rgba(30,41,100,.06);
+}
+.vs-stat{display:flex;flex-direction:column;min-width:120px}
+.vs-stat b{font-size:26px;font-weight:800;line-height:1.1;color:var(--ok)}
+.vs-stat.no b{color:var(--warn)}
+.vs-stat span{font-size:12.5px;color:var(--muted);font-weight:600}
+.vs-bar-wrap{flex:1;min-width:200px}
+.vs-bar-top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px}
+.vs-bar-top b{color:var(--ink);font-weight:800}
+.vs-bar{height:9px;background:#e8ebf5;border-radius:999px;overflow:hidden}
+.vs-bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),#12c07a);border-radius:999px;transition:width .5s var(--ease)}
+.verif-tabs{justify-content:flex-start;margin:16px 0 12px}
+.ver-list{display:flex;flex-direction:column;gap:8px}
+.ver-row{
+  display:flex;align-items:center;gap:12px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:11px 14px;cursor:pointer;
+  animation:fadeUp .3s var(--ease) both;
+  transition:border-color .15s var(--ease),box-shadow .15s var(--ease),transform .12s var(--ease);
+}
+.ver-row:hover{border-color:#c9d1f0;box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+.ver-row:active{transform:scale(.995)}
+.vr-ico{
+  width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:#fdeeea;color:#c0392b;
+}
+.vr-ico.yes{background:#e7f7ef;color:var(--ok)}
+.vr-ico svg{width:15px;height:15px}
+.vr-who{flex:1;min-width:0}
+.vr-who b{display:block;font-size:14px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vr-who small{color:var(--muted);font-size:11.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vr-pill{
+  flex:none;font-size:11px;font-weight:800;letter-spacing:.3px;white-space:nowrap;
+  padding:4px 11px;border-radius:999px;background:#fdf1e4;color:var(--warn);
+}
+.vr-pill.yes{background:#e7f7ef;color:var(--ok)}
+@media (max-width:760px){
+  .vs-summary{padding:14px}
+  .vs-stat{min-width:96px}
+  .vs-stat b{font-size:22px}
+  .vs-bar-wrap{min-width:100%;order:3}
+  .ver-row{padding:10px 12px;gap:10px}
+  .vr-ico{width:28px;height:28px}
+  .verif{margin-top:44px}
+}
+
 /* ---------- modal ---------- */
 .modal{
   position:fixed;inset:0;z-index:100;background:rgba(16,20,45,.68);

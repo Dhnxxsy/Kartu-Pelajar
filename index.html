@@ -127,6 +127,49 @@
     </button>
   </div>
 
+  <!-- Status verifikasi murid -->
+  <section id="verStatus" class="verif">
+    <div class="issues-head">
+      <div>
+        <h2><span class="ok-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span> Status Verifikasi Murid</h2>
+        <p class="muted">Murid mana saja yang sudah dan belum memverifikasi kartunya. Klik barisnya untuk membuka kartu.</p>
+      </div>
+    </div>
+
+    <div class="vs-summary">
+      <div class="vs-stat">
+        <b id="vsYes">0</b>
+        <span>Terverifikasi</span>
+      </div>
+      <div class="vs-stat no">
+        <b id="vsNo">0</b>
+        <span>Belum verifikasi</span>
+      </div>
+      <div class="vs-bar-wrap">
+        <div class="vs-bar-top"><span id="vsLabel">0 dari 0 murid</span><b id="vsPercent">0%</b></div>
+        <div class="vs-bar"><i id="vsBar" style="width:0%"></i></div>
+      </div>
+    </div>
+
+    <div id="verTabs" class="chips verif-tabs" role="tablist" aria-label="Filter status verifikasi">
+      <button class="chip active" data-ver="all" role="tab" aria-selected="true">Semua <span id="vcAll">0</span></button>
+      <button class="chip" data-ver="yes" role="tab" aria-selected="false">Terverifikasi <span id="vcYes">0</span></button>
+      <button class="chip" data-ver="no" role="tab" aria-selected="false">Belum verifikasi <span id="vcNo">0</span></button>
+    </div>
+
+    <div id="verList" class="ver-list">
+      <div class="muted center pad">Memuat…</div>
+    </div>
+
+    <div id="verMoreWrap" class="load-more-wrap hidden">
+      <button id="verMoreBtn" class="btn load-more" type="button">
+        <span class="lm-text">Tampilkan Lebih Banyak</span>
+        <span id="verMoreCount" class="lm-count"></span>
+        <svg class="lm-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </button>
+    </div>
+  </section>
+
   <section id="issues" class="issues">
     <div class="issues-head">
       <div>

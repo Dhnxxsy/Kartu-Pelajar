@@ -93,6 +93,7 @@
     $('issueTotal').textContent = problems.length;
     renderGrid(true);
     renderIssues();
+    renderVerifyList();
   }
 
   /* daftar siswa setelah difilter (jurusan + pencarian) */
@@ -211,6 +212,77 @@
     });
   }
 
+  /* ---------------- status verifikasi murid ---------------- */
+  var VER_PAGE = 20;
+  var verFilter = 'all';
+  var verShown = VER_PAGE;
+
+  function verBaseList() {
+    return currentList();
+  }
+
+  function lastVerRecord(key) {
+    for (var i = 0; i < comments.length; i++) {
+      var c = comments[i];
+      if (c.key === key && (c.type === 'Verifikasi' || c.type === 'Batal Verifikasi')) return c;
+    }
+    return null;
+  }
+
+  function verRowHTML(s, i) {
+    var ok = verifiedMap[s.key] === true;
+    var rec = ok ? lastVerRecord(s.key) : null;
+    var sub = 'NIS ' + (s.nis || '—') + ' · ' + (JUR_LABEL[s.jurusan] || s.jurusan);
+    if (rec && rec.type === 'Verifikasi' && rec.date) sub += ' · Diverifikasi ' + fmtDate(rec.date);
+    return '<div class="ver-row' + (ok ? ' yes' : '') + '" data-key="' + esc(s.key) + '" role="button" tabindex="0" style="animation-delay:' + ((i % 12) * 0.02) + 's">' +
+      '<span class="vr-ico' + (ok ? ' yes' : '') + '">' + (ok ? CHK : CROSS) + '</span>' +
+      '<div class="vr-who"><b>' + esc(s.name) + '</b><small>' + esc(sub) + '</small></div>' +
+      '<span class="vr-pill' + (ok ? ' yes' : '') + '">' + (ok ? 'Terverifikasi' : 'Belum') + '</span></div>';
+  }
+
+  function renderVerifyList() {
+    var listEl = $('verList');
+    if (!listEl) return;
+    var base = verBaseList();
+    var yes = [], no = [];
+    base.forEach(function (s) { (verifiedMap[s.key] === true ? yes : no).push(s); });
+    var total = base.length, y = yes.length, n = no.length;
+    var pct = total ? Math.round((y / total) * 100) : 0;
+
+    $('vsYes').textContent = y;
+    $('vsNo').textContent = n;
+    $('vcAll').textContent = total;
+    $('vcYes').textContent = y;
+    $('vcNo').textContent = n;
+    $('vsLabel').textContent = y + ' dari ' + total + ' murid';
+    $('vsPercent').textContent = pct + '%';
+    $('vsBar').style.width = pct + '%';
+
+    var list = verFilter === 'yes' ? yes : verFilter === 'no' ? no : base;
+    var shown = Math.min(verShown, list.length);
+    var visible = list.slice(0, shown);
+
+    if (visible.length) {
+      listEl.innerHTML = visible.map(verRowHTML).join('');
+    } else {
+      listEl.innerHTML = '<div class="muted center pad">' +
+        (total === 0
+          ? 'Tidak ada murid yang cocok dengan filter saat ini.'
+          : (verFilter === 'no' ? 'Semua murid pada filter ini sudah terverifikasi.' : 'Belum ada murid yang terverifikasi.')) +
+        '</div>';
+    }
+
+    var wrap = $('verMoreWrap');
+    if (wrap) {
+      if (list.length > shown) {
+        $('verMoreCount').textContent = (list.length - shown) + ' murid lagi';
+        wrap.classList.remove('hidden');
+      } else {
+        wrap.classList.add('hidden');
+      }
+    }
+  }
+
   /* ---------------- modal ---------------- */
   function openModal(key) {
     var st = null, prob = null;
@@ -263,6 +335,7 @@
 
   /* ---------------- verifikasi kartu ---------------- */
   var CHK = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  var CROSS = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
 
   function renderVerBox() {
     var st = currentStudent();
@@ -348,6 +421,7 @@
           renderGrid();
           renderCommentList(currentKey);
           renderPanel();
+          renderVerifyList();
         } catch (err) {}
       });
   }
@@ -515,6 +589,7 @@
       rebuildState();
       if (userRendered) { renderGrid(); } else { render(); }
       renderPanel();
+      renderVerifyList();
       if (currentKey) { renderCommentList(currentKey); renderVerBox(); }
     });
   }
@@ -603,6 +678,30 @@
     $('chips').querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('active', c === chip); });
     userRendered = true;
     render();
+  });
+  $('verTabs').addEventListener('click', function (e) {
+    var chip = e.target.closest ? e.target.closest('.chip') : null;
+    if (!chip || !chip.dataset.ver) return;
+    verFilter = chip.dataset.ver;
+    verShown = VER_PAGE;
+    $('verTabs').querySelectorAll('.chip').forEach(function (c) {
+      var on = c === chip;
+      c.classList.toggle('active', on);
+      c.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    renderVerifyList();
+  });
+  $('verMoreBtn').addEventListener('click', function () { verShown += VER_PAGE; renderVerifyList(); });
+  $('verList').addEventListener('click', function (e) {
+    var row = e.target.closest ? e.target.closest('.ver-row') : null;
+    if (row && row.dataset.key) openModal(row.dataset.key);
+  });
+  $('verList').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var row = e.target.closest ? e.target.closest('.ver-row') : null;
+    if (!row || !row.dataset.key) return;
+    e.preventDefault();
+    openModal(row.dataset.key);
   });
   var loadMoreBtn = $('loadMoreBtn');
   if (loadMoreBtn) loadMoreBtn.addEventListener('click', loadMoreTiles);
