@@ -201,6 +201,14 @@
     "img": "cards/MP1/wulan-sari.jpg"
   },
   {
+    "name": "Denisa Tiara",
+    "nis": "12612",
+    "nisn": "0106847602",
+    "jurusan": "MP1",
+    "key": "denisa-tiara-MP1",
+    "img": "cards/MP1/denisa-tiara.jpg"
+  },
+  {
     "name": "Ahmad Luthfi",
     "nis": "12630",
     "nisn": "0093650914",
@@ -407,6 +415,14 @@
     "jurusan": "MP2",
     "key": "arbain-tanzilahayyu-MP2",
     "img": "cards/MP2/arbain-tanzilahayyu.jpg"
+  },
+  {
+    "name": "Andini Dwi Febria",
+    "nis": "12632",
+    "nisn": "0106594658",
+    "jurusan": "MP2",
+    "key": "andini-dwi-febria-MP2",
+    "img": "cards/MP2/andini-dwi-febria.jpg"
   },
   {
     "name": "Ahmad Haiqal",
