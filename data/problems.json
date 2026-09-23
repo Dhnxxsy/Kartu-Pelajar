@@ -28,38 +28,11 @@
   },
   {
     "no": 4,
-    "name": "Muhammad Zulfa Febrian",
-    "jurusan": "MP1",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "muhammad-zulfa-febrian-MP1",
-    "extra": ""
-  },
-  {
-    "no": 5,
-    "name": "Carissa Zilvia",
-    "jurusan": "MP2",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "carissa-zilvia-MP2",
-    "extra": "NISN masih kosong di data sekolah — tuliskan NISN juga"
-  },
-  {
-    "no": 6,
     "name": "Salsabila Atasya Ulfah",
     "jurusan": "AK",
     "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
     "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
     "key": "salsabila-atasya-ulfah-AK",
-    "extra": ""
-  },
-  {
-    "no": 7,
-    "name": "Sarifah Amani",
-    "jurusan": "AK",
-    "masalah": "TTL & Alamat lengkap belum ada di data (tidak terisi di form pendaftaran)",
-    "perbaikan": "Tulis di kolom komentar: Tempat & Tanggal Lahir (contoh: Jakarta, 13 Agustus 2010) dan Alamat lengkap (Jalan / Gang, No. RT/RW, Kelurahan, Kecamatan, Kota).",
-    "key": "sarifah-amani-AK",
     "extra": ""
   }
 ]
