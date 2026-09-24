@@ -219,22 +219,66 @@ body{
 /* ---------- result bar ---------- */
 .result-bar{color:var(--muted);font-size:13px;margin:6px 2px 12px}
 
-/* ---------- grid ---------- */
+/* ---------- grid / rak photocards ---------- */
 .grid{
   display:grid;gap:16px;
   grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
 }
 .tile{
+  position:relative;
   background:var(--card);border-radius:var(--r);overflow:hidden;
   box-shadow:var(--shadow);cursor:pointer;
   border:1px solid var(--line);
+  transform-origin:50% 86%;
   animation:fadeUp .38s var(--ease) both;
-  transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease);
+  transition:box-shadow .22s var(--ease),border-color .22s var(--ease);
+  will-change:transform;
 }
-.tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#ccd4f2}
-.tile:active{transform:scale(.985)}
+.tile.racking{box-shadow:var(--shadow-lg);border-color:#c3ccf0}
+.tile:hover{box-shadow:var(--shadow-lg);border-color:#c3ccf0}
+.tile:active{box-shadow:var(--shadow-sm);border-color:#c3ccf0}
 .tile .imgwrap{aspect-ratio:1016/661;background:#e8ebf5;overflow:hidden;position:relative}
-.tile .imgwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,28,70,.07));pointer-events:none}
+.tile .imgwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,28,70,.06));pointer-events:none}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease)}
+.tile:hover img{transform:scale(1.04)}
+.tile .cap{
+  padding:10px 12px 8px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.tile .cap:has(+ .tray){padding-bottom:7px}
+.tile .cap b{font-size:13.5px;line-height:1.25;display:block}
+.tile .cap small{color:var(--muted);font-size:11.5px}
+.tray{
+  position:relative;height:8px;margin:1px 10px 9px;border-radius:4px;
+  background:linear-gradient(#eef1fb,#cdd3e8);
+  box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(20,28,70,.08),0 2px 5px rgba(30,41,100,.14);
+}
+.tray::before{
+  content:"";position:absolute;left:10px;right:10px;top:2px;bottom:2px;border-radius:3px;
+  background:linear-gradient(180deg,rgba(120,132,180,.32),rgba(120,132,180,.07));
+}
+.pin{
+  position:absolute;z-index:4;top:8px;left:10px;width:13px;height:13px;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%,#ff9a8f,#d63a3a 68%);
+  box-shadow:0 2px 4px rgba(120,20,20,.45),inset 0 0 0 1.5px rgba(255,255,255,.55);
+  transform:rotate(-12deg);
+  animation:pinIn .35s var(--ease);
+}
+@keyframes pinIn{from{opacity:0;transform:rotate(-12deg) scale(.4)}to{opacity:1;transform:rotate(-12deg) scale(1)}}
+/* reveal bertahap saat masuk / dimuat (IntersectionObserver) */
+.tile.io-start{
+  opacity:0;transform:translateY(22px) rotateX(16deg);
+  animation:none;
+  transition:opacity .5s var(--ease) var(--d,0s),transform .5s var(--ease) var(--d,0s);
+}
+.tile.io-in{opacity:1;transform:translateY(0) rotateX(0)}
+/* kartu yang baru diverifikasi "ditempel" — stempel menampar */
+@keyframes pinslam{
+  0%{transform:scale(1)}
+  30%{transform:scale(.86) translateY(4px) rotate(-2deg)}
+  60%{transform:scale(1.05) translateY(-2px)}
+  100%{transform:scale(1)}
+}
+.tile.slam{animation:pinslam .55s var(--ease)}
 @keyframes stampIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
 .ver-stamp{
   position:absolute;z-index:3;left:-4px;bottom:12px;
@@ -248,14 +292,6 @@ body{
   animation:stampIn .3s var(--ease) both;
 }
 .ver-stamp svg{width:13px;height:13px;flex:none}
-.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s var(--ease)}
-.tile:hover img{transform:scale(1.04)}
-.tile .cap{
-  padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;
-}
-.tile .cap b{font-size:13.5px;line-height:1.25;display:block}
-.tile .cap small{color:var(--muted);font-size:11.5px}
-.tile.tile-new{animation:fadeUp .38s var(--ease) both}
 
 /* ---------- load more ---------- */
 .load-more-wrap{display:flex;justify-content:center;margin:26px 0 4px}

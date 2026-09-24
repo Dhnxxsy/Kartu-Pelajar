@@ -87,6 +87,106 @@
   var shownCount = PAGE_SIZE;
   var userRendered = false;
 
+  /* ---------------- rak photocards ---------------- */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  var MAX_TILT = 6, FAN = 2.4;
+  var lastHovered = null, rackTicking = false, revealRaf = false;
+
+  function rackRevealNow(t) {
+    t.classList.add('io-in');
+    t.classList.remove('io-start');
+  }
+  /* deterministik: tile di-reveal begitu masuk viewport — tidak ada yang bisa nyangkut */
+  function revealCheck() {
+    var els = grid.querySelectorAll('.tile.io-start');
+    if (!els.length) return;
+    var vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+    var limit = vh - 40;
+    Array.prototype.forEach.call(els, function (t) {
+      if (t.getBoundingClientRect().top < limit) rackRevealNow(t);
+    });
+  }
+  function onRevealScroll() {
+    if (revealRaf) return;
+    revealRaf = true;
+    requestAnimationFrame(function () {
+      revealCheck();
+      revealRaf = false;
+    });
+  }
+
+  function staggerReveal(nodes) {
+    if (!nodes.length) return;
+    var i = 0;
+    Array.prototype.forEach.call(nodes, function (t) {
+      if (reduceMotion) { rackRevealNow(t); return; }
+      t.classList.add('io-start');
+      t.style.setProperty('--d', ((i % 14) * 0.02) + 's');
+      i++;
+    });
+    revealCheck();
+  }
+
+  function resetFan() {
+    var ts = grid.querySelectorAll('.tile.racking');
+    Array.prototype.forEach.call(ts, function (t) {
+      t.classList.remove('racking');
+      t.style.transform = '';
+      t.style.zIndex = '';
+    });
+  }
+  function applyTilt(h, e) {
+    var r = h.getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    var rx = ((e.clientY - cy) / (r.height / 2)) * -MAX_TILT;
+    var ry = ((e.clientX - cx) / (r.width / 2)) * MAX_TILT;
+    h.style.transform = 'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-3px)';
+    h.style.zIndex = 7;
+  }
+  function fanRow(h) {
+    var list = Array.prototype.slice.call(grid.querySelectorAll('.tile'));
+    var idx = list.indexOf(h);
+    var rowTop = h.offsetTop;
+    list.forEach(function (t, i) {
+      if (t.offsetTop !== rowTop) return;
+      var off = i - idx, a = Math.abs(off);
+      if (!off) { t.classList.add('racking'); t.style.zIndex = 7; t.style.transform = ''; return; }
+      if (a > 2) return;
+      t.classList.add('racking');
+      t.style.zIndex = 6 - a;
+      t.style.transform = 'rotateY(' + (-off * FAN).toFixed(1) + 'deg) translateY(' + (off < 0 ? '-' : '') + (a * 2) + 'px)';
+    });
+    applyTilt(h, arguments[1]);
+  }
+  function onRackMove(e) {
+    if (reduceMotion || coarsePointer) return;
+    var h = e.target.closest ? e.target.closest('.tile') : null;
+    if (!h) { resetFan(); lastHovered = null; return; }
+    if (rackTicking) return;
+    rackTicking = true;
+    requestAnimationFrame(function () {
+      if (h !== lastHovered) { lastHovered = h; resetFan(); fanRow(h, e); }
+      else { applyTilt(h, e); }
+      rackTicking = false;
+    });
+  }
+  function onRackLeave() { resetFan(); lastHovered = null; }
+  function bindRackEvents() {
+    if (reduceMotion || coarsePointer) return;
+    grid.addEventListener('mousemove', onRackMove);
+    grid.addEventListener('mouseleave', onRackLeave);
+  }
+  function slamRack(key) {
+    if (reduceMotion) return;
+    var t = grid.querySelector('.tile[data-key="' + key + '"]');
+    if (!t) return;
+    t.classList.remove('slam');
+    void t.offsetWidth;
+    t.classList.add('slam');
+    setTimeout(function () { t.classList.remove('slam'); }, 650);
+  }
+
   function render() {
     $('cntAll').textContent = students.length;
     ['MP1','MP2','AK','PBS','DKV','BD'].forEach(function (j) { $('cnt' + j).textContent = totalPerJur[j]; });
@@ -125,15 +225,19 @@
   }
 
   function tileHTML(s, i) {
-    var badge = verifiedMap[s.key] === true
-      ? '<span class="ver-stamp">' +
-        '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
-        'TERVERIFIKASI</span>'
-      : '';
+    var ver = getStamp(s.key);
+    var badge = verifiedMap[s.key] === true ? ver : '';
+    var pin = verifiedMap[s.key] === true ? '<span class="pin" aria-hidden="true"></span>' : '';
     return '<div class="tile" data-key="' + esc(s.key) + '" role="button" tabindex="0" style="animation-delay:' + ((i % 14) * 0.022) + 's">' +
-      '<div class="imgwrap">' + badge + tileImgHTML(s, i) + '</div>' +
+      '<div class="imgwrap">' + pin + badge + tileImgHTML(s, i) + '</div>' +
       '<div class="cap"><div><b>' + esc(s.name) + '</b><small>' + esc(JUR_LABEL[s.jurusan] || s.jurusan) + '</small></div>' +
-      '</div></div>';
+      '</div><div class="tray" aria-hidden="true"></div></div>';
+  }
+
+  function getStamp(key) {
+    return '<span class="ver-stamp">' +
+      '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
+      'TERVERIFIKASI</span>';
   }
 
   function bindTiles(nodes) {
@@ -176,6 +280,7 @@
     emptyState.classList.toggle('hidden', total !== 0);
     grid.innerHTML = visible.map(tileHTML).join('');
     bindTiles(grid.querySelectorAll('.tile'));
+    staggerReveal(grid.querySelectorAll('.tile'));
     updateLoadMore(total, visible.length);
   }
 
@@ -189,6 +294,7 @@
     var added = holder.querySelectorAll('.tile');
     bindTiles(added);
     Array.prototype.forEach.call(added, function (t) { grid.appendChild(t); });
+    staggerReveal(added);
     updateResultCount(list.length, shownCount);
     updateLoadMore(list.length, shownCount);
   }
@@ -419,6 +525,7 @@
         try {
           renderVerBox();
           renderGrid();
+          slamRack(currentKey);
           renderCommentList(currentKey);
           renderPanel();
           renderVerifyList();
@@ -786,6 +893,9 @@
       if (rb) rb.addEventListener('click', function () { grid.innerHTML = ''; boot(); });
     });
   }
+  bindRackEvents();
+  window.addEventListener('scroll', onRevealScroll, { passive: true });
+  window.addEventListener('resize', onRevealScroll, { passive: true });
   boot();
 
   /* ---------------- tombol kembali ke atas ---------------- */
